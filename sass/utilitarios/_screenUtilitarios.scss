@@ -1,0 +1,70 @@
+.ocultar-solo-grandes {
+    @include agregar-a-medida-minima(m){
+        display: none !important;
+    }
+}
+
+
+.ocultar-desde-medianos {
+    @include agregar-a-medida-maxima(m){
+        display: none !important;
+    }
+}
+
+.ocultar-desde-chicos {
+    @include agregar-a-medida-maxima(s){
+        display: none !important;
+    }
+}
+
+.ocultar-desde-x-chicos {
+    @include agregar-a-medida-maxima(xs){
+        display: none !important;
+    }
+}
+
+
+.mostrar-solo-x-chicos {
+    @include agregar-a-medida-minima(xs){
+        display: none !important;
+    }
+}
+
+.mostrar-solo-chicos {
+    @include agregar-a-medida-minima(s){
+        display: none !important;
+    }
+
+    @include agregar-a-medida-maxima(xs){
+        display: none !important;
+    }
+}
+
+
+.mostrar-solo-medianos {
+    @include agregar-a-medida-minima(m){
+        display: none !important;
+    }
+
+    @include agregar-a-medida-maxima(s){
+        display: none !important;
+    }
+}
+
+.mostrar-solo-grandes {
+    @include agregar-a-medida-maxima(m){
+        display: none !important;
+    }
+}
+
+.derecha {
+    justify-content: flex-end !important;
+}
+
+.izquierda {
+    justify-content: flex-start !important;
+}
+
+.centrado {
+    justify-content: center !important;
+}

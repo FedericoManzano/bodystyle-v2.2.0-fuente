@@ -1,0 +1,67 @@
+// Ancho y alto
+@for $i from 1 through 100 {
+    @if(multiplo5($i)){    
+        .ancho-#{$i}{        
+            width: 0% + $i !important; 
+        }
+    }
+}
+@for $i from 1 through 100 {
+    @if(multiplo5($i)){    
+        .alto-#{$i}{        
+            height: 0% + $i !important; 
+        }
+    }
+}
+
+
+@media (max-width: dameMedida(m)){
+    @for $i from 1 through 100 {
+        @if(multiplo5($i)){    
+            .ancho-m-#{$i}{        
+                width: 0% + $i !important; 
+            }
+        }
+    }
+    @for $i from 1 through 100 {
+        @if(multiplo5($i)){    
+            .alto-m-#{$i}{        
+                height: 0% + $i !important; 
+            }
+        }
+    }
+}
+
+@media (max-width: dameMedida(s)){
+    @for $i from 1 through 100 {
+        @if(multiplo5($i)){    
+            .ancho-s-#{$i}{        
+                width: 0% + $i !important; 
+            }
+        }
+    }
+    @for $i from 1 through 100 {
+        @if(multiplo5($i)){    
+            .alto-s-#{$i}{        
+                height: 0% + $i !important; 
+            }
+        }
+    }
+}
+
+@media (max-width: dameMedida(xs)){
+    @for $i from 1 through 100 {
+        @if(multiplo5($i)){    
+            .ancho-xs-#{$i}{        
+                width: 0% + $i !important; 
+            }
+        }
+    }
+    @for $i from 1 through 100 {
+        @if(multiplo5($i)){    
+            .alto-xs-#{$i}{        
+                height: 0% + $i !important; 
+            }
+        }
+    }
+}

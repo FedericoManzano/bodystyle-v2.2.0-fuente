@@ -1,0 +1,383 @@
+
+.d-flex {
+    display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -o-display: flex;
+    -ms-display: flex;
+}
+
+.flex-fila {
+    flex-direction: row;
+}
+
+.flex-columna {
+    flex-direction: column;
+}
+
+.flex-fila-reversa {
+    flex-direction: row-reverse;
+}
+
+.flex-columna-reversa {
+    flex-direction: column-reverse;
+}
+
+.flex-no-wrap {
+    flex-wrap: nowrap;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-wrap-reversa {
+    flex-wrap: wrap-reverse;
+}
+
+
+.just-inicio {
+    justify-content: flex-start;
+}
+
+.just-final {
+    justify-content: flex-end;
+}
+
+.just-centrada {
+    justify-content: center;
+}
+
+.just-cobertura {
+    justify-content: space-around;
+}
+
+.just-cobertura-tope {
+    justify-content: space-between;
+}
+
+.ali-centrada {
+    align-items: center;
+}
+
+.ali-inicio {
+    align-items: flex-start;
+}
+
+.ali-final {
+    align-items: flex-end;
+}
+
+.ali-fuente {
+    align-items: baseline;
+}
+
+.ali-cobertura {
+    align-items: stretch;
+}
+
+.ali-contenido-centrada {
+    align-content: center;
+}
+
+.ali-contenido-inicio {
+    align-content: flex-start;
+}
+
+.ali-contenido-final {
+    align-content: flex-end;
+}
+
+.ali-contenido-cobertura {
+    align-content: stretch;
+}
+
+
+
+@media (max-width: dameMedida(m)){
+    .d-flex-m {
+        display: flex;
+        -webkit-display: flex;
+        -moz-display: flex;
+        -o-display: flex;
+        -ms-display: flex;
+    }
+    
+    .flex-fila-m {
+        flex-direction: row;
+    }
+    
+    .flex-columna-m {
+        flex-direction: column;
+    }
+    
+    .flex-fila-reversa-m {
+        flex-direction: row-reverse;
+    }
+    
+    .flex-columna-reversa-m {
+        flex-direction: column-reverse;
+    }
+    
+    .flex-no-wrap-m {
+        flex-wrap: nowrap;
+    }
+    
+    .flex-wrap-m {
+        flex-wrap: wrap;
+    }
+    
+    .flex-wrap-reversa-m {
+        flex-wrap: wrap-reverse;
+    }
+    
+    
+    .just-inicio-m {
+        justify-content: flex-start;
+    }
+    
+    .just-final-m {
+        justify-content: flex-end;
+    }
+    
+    .just-centrada-m {
+        justify-content: center;
+    }
+    
+    .just-cobertura-m {
+        justify-content: space-around;
+    }
+    
+    .just-cobertura-tope-m {
+        justify-content: space-between;
+    }
+    
+    .ali-centrada-m {
+        align-items: center;
+    }
+    
+    .ali-inicio-m {
+        align-items: flex-start;
+    }
+    
+    .ali-final-m {
+        align-items: flex-end;
+    }
+    
+    .ali-fuente-m {
+        align-items: baseline;
+    }
+    
+    .ali-cobertura-m {
+        align-items: stretch;
+    }
+    
+    .ali-contenido-centrada-m {
+        align-content: center;
+    }
+    
+    .ali-contenido-inicio-m {
+        align-content: flex-start;
+    }
+    
+    .ali-contenido-final-m {
+        align-content: flex-end;
+    }
+    
+    .ali-contenido-cobertura-m {
+        align-content: stretch;
+    }
+    
+}
+
+@media (max-width: dameMedida(s)){
+    .d-flex-s {
+        display: flex;
+        -webkit-display: flex;
+        -moz-display: flex;
+        -o-display: flex;
+        -ms-display: flex;
+    }
+    
+    .flex-fila-s {
+        flex-direction: row;
+    }
+    
+    .flex-columna-s {
+        flex-direction: column;
+    }
+    
+    .flex-fila-reversa-s {
+        flex-direction: row-reverse;
+    }
+    
+    .flex-columna-reversa-s {
+        flex-direction: column-reverse;
+    }
+    
+    .flex-no-wrap-s {
+        flex-wrap: nowrap;
+    }
+    
+    .flex-wrap-s {
+        flex-wrap: wrap;
+    }
+    
+    .flex-wrap-reversa-s {
+        flex-wrap: wrap-reverse;
+    }
+    
+    .just-inicio-s {
+        justify-content: flex-start;
+    }
+    
+    .just-final-s {
+        justify-content: flex-end;
+    }
+    
+    .just-centrada-s {
+        justify-content: center;
+    }
+    
+    .just-cobertura-s {
+        justify-content: space-around;
+    }
+    
+    .just-cobertura-tope-s {
+        justify-content: space-between;
+    }
+    
+    .ali-centrada-s {
+        align-items: center;
+    }
+    
+    .ali-inicio-s {
+        align-items: flex-start;
+    }
+    
+    .ali-final-s {
+        align-items: flex-end;
+    }
+    
+    .ali-fuente-s {
+        align-items: baseline;
+    }
+    
+    .ali-cobertura-s {
+        align-items: stretch;
+    }
+    
+    .ali-contenido-centrada-s {
+        align-content: center;
+    }
+    
+    .ali-contenido-inicio-s {
+        align-content: flex-start;
+    }
+    
+    .ali-contenido-final-s {
+        align-content: flex-end;
+    }
+    
+    .ali-contenido-cobertura-s {
+        align-content: stretch;
+    }
+    
+}
+
+
+@media (max-width: dameMedida(xs)){
+    .d-flex-xs {
+        display: flex;
+        -webkit-display: flex;
+        -moz-display: flex;
+        -o-display: flex;
+        -ms-display: flex;
+    }
+    
+    .flex-fila-xs {
+        flex-direction: row;
+    }
+    
+    .flex-columna-xs {
+        flex-direction: column;
+    }
+    
+    .flex-fila-reversa-xs {
+        flex-direction: row-reverse;
+    }
+    
+    .flex-columna-reversa-xs {
+        flex-direction: column-reverse;
+    }
+    
+    .flex-no-wrap-xs {
+        flex-wrap: nowrap;
+    }
+    
+    .flex-wrap-xs {
+        flex-wrap: wrap;
+    }
+    
+    .flex-wrap-reversa-xs {
+        flex-wrap: wrap-reverse;
+    }
+    
+    .just-inicio-xs {
+        justify-content: flex-start;
+    }
+    
+    .just-final-xs {
+        justify-content: flex-end;
+    }
+    
+    .just-centrada-xs {
+        justify-content: center;
+    }
+    
+    .just-cobertura-xs {
+        justify-content: space-around;
+    }
+    
+    .just-cobertura-tope-xs {
+        justify-content: space-between;
+    }
+
+    
+    .ali-centrada-xs {
+        align-items: center;
+    }
+    
+    .ali-inicio-s {
+        align-items: flex-start;
+    }
+    
+    .ali-final-xs {
+        align-items: flex-end;
+    }
+    
+    .ali-fuente-xs {
+        align-items: baseline;
+    }
+    
+    .ali-cobertura-xs {
+        align-items: stretch;
+    }
+    
+    .ali-contenido-centrada-xs {
+        align-content: center;
+    }
+    
+    .ali-contenido-inicio-xs {
+        align-content: flex-start;
+    }
+    
+    .ali-contenido-final-xs {
+        align-content: flex-end;
+    }
+    
+    .ali-contenido-cobertura-xs {
+        align-content: stretch;
+    }
+    
+}

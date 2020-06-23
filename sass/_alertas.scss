@@ -1,0 +1,121 @@
+.alerta-roja,
+.alerta-azul,
+.alerta-verde,
+.alerta-blanca,
+.alerta-gris ,
+.alerta-negra {
+    display: inline-block;
+    padding: $alerta-padding;
+    background-color: $alerta-bg;
+    border: $alerta-borde;
+    border-radius: $alerta-bor-rad;
+    font-size: $alarta-fz;
+    line-height: $alerta-lh;
+    font-weight: $alerta-fw;
+}
+
+.alerta-azul {
+    border-left: $alerta-azul-borde;
+}
+
+.alerta-roja{
+    border-left: $alerta-roja-borde;
+}
+
+.alerta-verde{
+    border-left: $alerta-verde-borde;
+}
+
+.alerta-gris{
+    border-left: $alerta-gris-borde;
+}
+
+.alerta-negra{
+    border-left: $alerta-negra-borde;
+}
+
+.alerta-blanca{
+    border-left: $alerta-blanca-borde;
+}
+
+.alerta-op-rojo,
+.alerta-op-verde,
+.alerta-op-azul,
+.alerta-op-negro,
+.alerta-op-blanco,
+.alerta-op-gris {
+    padding: $alerta-op-padding;
+    font-size: $alerta-op-fz;
+    line-height: $alerta-op-lh;
+    font-weight: $alerta-op-fw;
+    border-radius: $alerta-op-bor-rad;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+}
+
+.alerta-op-rojo {
+    background-color: $alerta-op-rojo-bg;
+    border: $alerta-op-rojo-borde;
+    color: $alerta-op-rojo-color;
+}
+
+.alerta-op-verde {
+    background-color: $alerta-op-verde-bg;
+    border: $alerta-op-verde-borde;
+    color: $alerta-op-verde-color;
+}
+
+.alerta-op-azul {
+    background-color: $alerta-op-azul-bg;
+    border: $alerta-op-azul-borde;
+    color: $alerta-op-azul-color;
+}
+
+.alerta-op-negro {
+    background-color: $alerta-op-negro-bg;
+    border: $alerta-op-negro-borde;
+    color: $alerta-op-negro-color;
+}
+
+.alerta-op-gris {
+    background-color: $alerta-op-gris-bg;
+    border: $alerta-op-gris-borde;
+    color: $alerta-op-gris-color;
+}
+
+.alerta-op-blanco {
+    background-color: $alerta-op-blanco-bg;
+    border: $alerta-op-blanco-borde;
+    color: $alerta-op-blanco-color;
+}
+
+.alerta-cerrar {
+    position: relative;
+    cursor: pointer;
+    &::before, 
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: black;
+        width: 12px;
+        height: 3px;
+        right: 7px;
+        top: 10px;
+        transform:  rotate(45deg);
+    }
+
+    &::after {
+        transform:  rotate(-45deg);
+    }
+}
+  
+  
+  

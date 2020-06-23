@@ -1,0 +1,266 @@
+
+$borde: 1px solid rgba(0, 0, 0, 0.2);
+
+table, 
+.tabla-oscura, 
+.tabla-roja,
+.tabla-verde,
+.tabla-azul {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border-collapse:collapse; 
+    border: none;
+    width: 100%;
+}
+
+.centrada {
+    text-align: center !important;
+}
+
+.tabla-responsive::-webkit-scrollbar{
+    width: 10px !important;
+    height: 10px;
+    background-color: rgb(39, 39, 39) !important;
+}
+
+.tabla-responsive::-webkit-scrollbar-thumb{
+    background-color: rgba(138, 138, 138, 0.527) !important;
+    border-radius: 5px !important;
+}
+
+table thead tr,
+table tbody tr, 
+.tabla-roja thead tr,
+.tabla-roja tbody tr,
+.tabla-roja thead tr,
+.tabla-roja tbody tr,
+.tabla-azul thead tr,
+.tabla-azul tbody tr,
+.tabla-oscura thead tr,
+.tabla-oscura tbody tr{
+   color: #212121;
+}
+
+
+table thead tr td,
+table tbody tr td,
+.tabla-roja  thead tr td,
+.tabla-roja  tbody tr td,
+.tabla-verde  thead tr td,
+.tabla-verde  tbody tr td,
+.tabla-azul  thead tr td,
+.tabla-azul  tbody tr td,
+.tabla-oscura  thead tr td,
+.tabla-oscura  tbody tr td{
+    padding: 1em 1em;
+    border-bottom:  $borde;
+    border-top:  $borde;
+    border-left:  none;
+    font-weight: 600;
+}
+
+table tbody tr td{
+    border-top: none;
+    cursor: pointer;
+    color: #212121;
+}
+
+table thead{
+    background-color: rgba(0, 0, 0, 0.034) !important;
+}
+
+table tbody tr td {
+    border-radius: 0;
+    font-weight: 500;
+}
+.tabla-oscura {
+    background-color: $fd-gris-az-c;
+}
+.tabla-oscura tbody tr td {
+    border-top:  none;
+    color: white;
+    font-weight: 500;
+}
+
+.tabla-oscura thead tr,
+.tabla-oscura tbody tr {
+   color: white;
+}
+
+.tabla-oscura thead tr td:nth-child(1),
+.tabla-oscura tbody tr td:nth-child(1){
+    border-left: none;
+}
+.tabla-oscura thead tr {
+    border-radius: 10px 10px 0 0 ;
+    overflow: hidden;
+}
+
+
+// Tabla roja
+
+.tabla-roja {
+    background-color: $fd-rojo !important;
+}
+
+.tabla-roja tbody tr td {
+    border-top:  none;
+    color: white;
+    font-weight: 500;
+}
+
+.tabla-roja tbody tr td {
+    border-top:  none;
+    color: white;
+    font-weight: 500;
+}
+
+.tabla-roja thead tr,
+.tabla-roja tbody tr {
+   background-color: $fd-rojo;
+   color: white;
+}
+
+.tabla-roja thead tr td:nth-child(1),
+.tabla-roja tbody tr td:nth-child(1){
+    border-left: none;
+}
+.tabla-roja thead tr {
+    border-radius: 10px 10px 0 0 ;
+    overflow: hidden;
+}
+
+// tabla azul
+
+
+.tabla-azul{
+    background-color: $fd-azul-c !important;
+}
+
+.tabla-azul tbody tr td {
+    border-top:  none;
+    color: white;
+    font-weight: 500;
+}
+
+
+.tabla-azul thead tr,
+.tabla-azul tbody tr {
+   color: white;
+}
+
+.tabla-azul thead tr td:nth-child(1),
+.tabla-azul tbody tr td:nth-child(1){
+    border-left: none;
+}
+.tabla-azul thead tr {
+    border-radius: 10px 10px 0 0 ;
+    overflow: hidden;
+}
+
+.selector tbody tr:nth-child(2n+1) >td{
+    background-color: rgba(0, 0, 0, .05) !important;;
+}
+
+
+// verde 
+
+.tabla-verde {
+    background-color: rgb(0, 117, 133) !important;
+}
+.tabla-verde tbody tr td {
+    border-top:  none;
+    color: white;
+    font-weight: 500;
+}
+
+.tabla-verde thead tr,
+.tabla-verde tbody tr {
+   color: white;
+}
+
+.tabla-verde thead tr td:nth-child(1),
+.tabla-verde tbody tr td:nth-child(1){
+    
+    border-left: none;
+}
+.tabla-verde thead tr {
+    border-radius: 10px 10px 0 0 ;
+    overflow: hidden;
+}
+
+
+.hover tbody tr:hover > td{
+    background-color: rgba(0, 0, 0, .03) !important;
+}
+
+.tabla-sm thead tr td,
+.tabla-sm tbody tr td{
+    padding: 0.5em 1em;
+}
+
+.tabla-bor-rojo thead{
+    border-top: 3px solid $fd-rojo;
+    border-radius: 3px  !important;
+}
+
+.tabla-bor-verde thead{
+    border-top: 3px solid $fd-verde;
+    border-radius: 3px  !important;
+}
+
+.tabla-bor-azul thead{
+    border-top: 3px solid $fd-azul;
+    border-radius: 3px  !important;
+}
+
+
+.tabla-bor-gris thead{
+    border-top: 3px solid $fd-gris;
+    border-radius: 3px  !important;
+}
+
+
+.tabla-bor-negro thead{
+    border-top: 3px solid $fd-negro;
+    border-radius: 3px  !important;
+}
+
+.tabla-bor-blanco thead{
+    border-top: 3px solid $fd-blanco;
+    border-radius: 3px  !important;
+}
+
+@media (max-width: 1200px) {
+    .tabla-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    .tabla-responsive > table {
+        margin-bottom: 0;
+    }
+    .tabla-responsive > table > thead > tr > th,
+    .tabla-responsive > table > tbody > tr > th,
+    .tabla-responsive > table > tfoot > tr > th,
+    .tabla-responsive > table > thead > tr > td,
+    .tabla-responsive > table > tbody > tr > td,
+    .tabla-responsive > table > tfoot > tr > td {
+        white-space: nowrap;
+    }
+}
+
+.borde-vertical  thead ,
+.borde-vertical  tbody{
+    tr {
+        td {
+            border-left: $borde;
+        }
+
+        & td:last-child {
+            border-right: $borde;
+        }
+    }
+}

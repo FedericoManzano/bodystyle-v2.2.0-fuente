@@ -1,0 +1,109 @@
+.slider-show {
+    @include ancho-alto(100%, 100%);
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+
+
+    @media (max-width: 1024px){
+        & {
+            height: 70%;
+        }
+    }
+
+
+    .slider {
+        li {
+            @include ancho-alto(100%, 100%);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                position: absolute;
+                top: -100;
+                max-width: 100%;
+                min-height: 100%;
+            }
+            .contenido {
+                z-index: 10;
+                position: absolute;
+                text-align: center;
+                color: white;
+                margin: auto;
+                width: 100%;
+                padding: 20px;
+                
+                h2 {
+                    line-height: 80px;
+                    font-size: 60px;
+                    font-weight: 300;
+                    margin-bottom: 20px;
+                }
+                h4{
+                    font-weight: 600;
+                }
+                p {
+                    line-height: 30px;
+                }
+            }
+
+        }
+    }
+    .botones {
+        position: absolute;
+        top: calc(50% - 20px);
+        z-index: 10000;
+        height: 40px;
+        color: white;
+        font-size: 35px;
+        width: 100%;
+        left: 0;
+        right: 0;
+        span {
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            cursor: pointer;
+        }
+        & span:first-child {
+            left: -20%;
+            transition: left 0.5s ease;
+        }
+        & span:last-child {
+            right: -20%;
+            transition: right 0.5s ease;
+        }
+    }
+
+    .selectores-contenedor {
+        position: absolute;
+        display: flex;
+        bottom: 3%;
+        left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+
+    .selectores{
+        height: 3px;
+        background-color: grey;
+        margin-left: 3px;
+        width: 16px;
+        cursor: pointer;
+        bottom: 3%;
+    }
+
+    &:hover .botones span:first-child{
+        left: 3%;
+    }
+
+    &:hover  .botones span:last-child{
+        right: 3%;
+    }
+
+}
+
+
+

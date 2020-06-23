@@ -1,0 +1,66 @@
+.tips {
+
+
+    // 16px 1em
+    font-size: 16px;
+
+    @include flex-box-centrado();
+
+
+    position: absolute; 
+    padding: 20px 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.863);
+    border-radius: 5px;
+    
+    white-space: nowrap;
+    max-height: 40px !important;
+    min-height: 40px !important;
+
+    z-index: superposicion(ms) !important;
+    transform: translate(0);
+    transition: transform 0.3s ease;
+
+
+
+    .mueca-aba,
+    .mueca-izq,
+    .mueca-der,
+    .mueca-arr {
+        position: absolute !important;
+        width: 0 ;
+        height: 0;
+    }
+
+    .mueca-aba {
+        border-top: 5px solid rgba(0, 0, 0, 0.863) !important;
+        border-left: 5px solid transparent !important;
+        border-right: 5px solid transparent !important;
+    }
+
+    .mueca-arr {
+        border-bottom: 5px solid rgba(0, 0, 0, 0.863) !important;
+        border-left: 5px solid transparent !important;
+        border-right: 5px solid transparent !important;
+    }
+
+    .mueca-izq {
+        border-right: 5px solid rgba(0, 0, 0, 0.863) !important;
+        border-top: 5px solid transparent !important;
+        border-bottom: 5px solid transparent !important;
+    }
+
+    .mueca-der {
+        border-left: 5px solid rgba(0, 0, 0, 0.863) !important;
+        border-top: 5px solid transparent !important;
+        border-bottom: 5px solid transparent !important;
+    }
+}
+
+.tips-ele {
+    z-index: 0;
+    position: relative ;
+    overflow: visible !important;
+}
+
+

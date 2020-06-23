@@ -1,0 +1,25 @@
+.toast {
+    @include flex-box-centrado();
+    position: fixed;
+    padding: 15px;
+    font-size: 17px;
+    background-color: $fd-gris-az-c;
+    text-align: center;
+    right: 3%;
+    top: 100px;
+    color: white;
+    animation: subir 1s  0s 1  linear;
+    border-radius: 3px;
+    user-select: none;
+    box-shadow: 0 0.5px 3px 1px rgba(0, 0, 0, 0.534);
+    
+}
+
+
+@keyframes subir {
+    from {
+        top: 300px;
+    }to {
+        top: 100px;
+    }
+}

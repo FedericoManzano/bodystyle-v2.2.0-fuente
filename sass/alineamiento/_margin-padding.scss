@@ -1,0 +1,454 @@
+
+
+// Clases para agregarle padding a los elementos
+$p: inicializarVariable();
+@for $i from 0 through 15 {
+    .p-#{$i} { 
+        padding: #{$p}em !important;
+    }
+    $p: incrementar($p);
+} 
+
+$p: inicializarVariable();
+@for $i from 0 through 15 {
+    .pi-#{$i} { 
+        padding-left: #{$p}em !important;
+    }
+    $p: incrementar($p);
+} 
+
+$p: inicializarVariable();
+@for $i from 0 through 15 {
+    .pd-#{$i} { 
+        padding-right: #{$p}em !important;
+    }
+    $p: incrementar($p);
+}
+
+$p: inicializarVariable();
+@for $i from 0 through 15 {
+    .pab-#{$i} { 
+        padding-bottom: #{$p}em !important;
+    }
+    $p: incrementar($p);
+}
+
+$p: inicializarVariable();
+@for $i from 0 through 15 {
+    .par-#{$i} { 
+        padding-top: #{$p}em !important;
+    }
+    $p: incrementar($p);
+}
+
+$p: inicializarVariable();
+@for $i from 0 through 15 {
+    .py-#{$i} { 
+        padding-top: #{$p}em !important;
+        padding-bottom: #{$p}em !important;
+    }
+    $p: incrementar($p);
+}
+
+$p: inicializarVariable();
+@for $i from 0 through 15 {
+    .px-#{$i} { 
+        padding-left: #{$p}em !important;
+        padding-right: #{$p}em !important;
+    }
+    $p: incrementar($p);
+}
+
+$m: inicializarVariable();
+@for $i from 0 through 15 {
+    .m-#{$i} { 
+        margin: #{$m}em !important;
+    }
+    $m: incrementar($m);
+}
+
+$m: inicializarVariable();
+@for $i from 0 through 15 {
+    .mi-#{$i} { 
+        margin-left: #{$m}em !important;
+    }
+    $m: incrementar($m);
+}
+
+$m: inicializarVariable();
+@for $i from 0 through 15 {
+    .md-#{$i} { 
+        margin-right: #{$m}em !important;
+    }
+    $m: incrementar($m);
+}
+
+$m: inicializarVariable();
+@for $i from 0 through 15 {
+    .mar-#{$i} { 
+        margin-top: #{$m}em !important;
+    }
+    $m: incrementar($m);
+}
+
+$m: inicializarVariable();
+@for $i from 0 through 15 {
+    .mab-#{$i} { 
+        margin-bottom: #{$m}em !important;
+    }
+    $m: incrementar($m);
+}
+
+$m: inicializarVariable();
+@for $i from 0 through 15 {
+    .my-#{$i} { 
+        margin-bottom: #{$m}em !important;
+        margin-top: #{$m}em !important;
+    }
+    $m: incrementar($m);
+}
+
+$m: inicializarVariable();
+@for $i from 0 through 15 {
+    .mx-#{$i} { 
+        margin-left: #{$m}em !important;
+        margin-right: #{$m}em !important;
+    }
+    $m: incrementar($m);
+}
+
+.m-a {
+    margin:auto !important;
+}
+
+@media (max-width: dameMedida(m)){
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .m-m-#{$i} { 
+            margin: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mi-m-#{$i} { 
+            margin-left: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .md-m-#{$i} { 
+            margin-right: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mab-m-#{$i} { 
+            margin-bottom: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mar-m-#{$i} { 
+            margin-top: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .my-m-#{$i} { 
+            margin-top: #{$m}em !important;
+            margin-bottom: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mx-m-#{$i} { 
+            margin-left: #{$m}em !important;
+            margin-right: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .p-m-#{$i} { 
+            padding: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    } 
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pi-m-#{$i} { 
+            padding-left: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    } 
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pd-m-#{$i} { 
+            padding-right: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pab-m-#{$i} { 
+            padding-bottom: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .par-m-#{$i} { 
+            padding-top: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .py-m-#{$i} { 
+            padding-top: #{$p}em !important;
+            padding-bottom: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+}
+
+@media (max-width: dameMedida(s)){
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .m-s-#{$i} { 
+            margin: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mi-s-#{$i} { 
+            margin-left: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .md-s-#{$i} { 
+            margin-right: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mab-s-#{$i} { 
+            margin-bottom: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mar-s-#{$i} { 
+            margin-top: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .my-s-#{$i} { 
+            margin-top: #{$m}em !important;
+            margin-bottom: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mx-s-#{$i} { 
+            margin-left: #{$m}em !important;
+            margin-right: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .p-s-#{$i} { 
+            padding: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    } 
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pi-s-#{$i} { 
+            padding-left: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    } 
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pd-s-#{$i} { 
+            padding-right: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pab-s-#{$i} { 
+            padding-bottom: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .par-s-#{$i} { 
+            padding-top: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .py-s-#{$i} { 
+            padding-top: #{$p}em !important;
+            padding-bottom: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .px-s-#{$i} { 
+            padding-left: #{$p}em !important;
+            padding-right: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+}
+
+@media (max-width: dameMedida(xs)){
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .m-xs-#{$i} { 
+            margin: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mi-xs-#{$i} { 
+            margin-left: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .md-xs-#{$i} { 
+            margin-right: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mab-xs-#{$i} { 
+            margin-bottom: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mar-xs-#{$i} { 
+            margin-top: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .my-xs-#{$i} { 
+            margin-top: #{$m}em !important;
+            margin-bottom: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $m: inicializarVariable();
+    @for $i from 0 through 15 {
+        .mx-xs-#{$i} { 
+            margin-left: #{$m}em !important;
+            margin-right: #{$m}em !important;
+        }
+        $m: incrementar($m);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .p-xs-#{$i} { 
+            padding: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    } 
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pi-xs-#{$i} { 
+            padding-left: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    } 
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pd-xs-#{$i} { 
+            padding-right: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .pab-xs-#{$i} {
+            padding-bottom: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .par-xs-#{$i} { 
+            padding-top: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .py-xs-#{$i} { 
+            padding-top: #{$p}em !important;
+            padding-bottom: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+
+    $p: inicializarVariable();
+    @for $i from 0 through 15 {
+        .px-xs-#{$i} { 
+            padding-left: #{$p}em !important;
+            padding-right: #{$p}em !important;
+        }
+        $p: incrementar($p);
+    }
+}
