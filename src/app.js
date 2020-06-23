@@ -31,7 +31,7 @@ import InputHandler from "./modulos/InputHandler"
 import Select from "./modulos/Select"
 import Contenedores from "./modulos/Contenedores"
 import Nav from "./modulos/Nav"
-
+import Codigo from "./modulos/Codigo"
 
 
 (function(){
@@ -42,7 +42,7 @@ import Nav from "./modulos/Nav"
     GruposInput.iniciar()
     Desactivado.iniciar();
     InputHandler.iniciar()
-    
+    Codigo.iniciar()
 
     const TemplateDestroy = () => {
         Template.destroy()

@@ -1,0 +1,25 @@
+pre.cod-html {
+  background-color: #f1f1f1;
+  overflow: auto;
+  padding: 5px 0;
+  padding-top: 30px;
+  position: relative;
+}
+pre.cod-html .boton-copiar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  padding: 5px;
+  font-size: 13px;
+  color: white;
+  z-index: 10000;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+pre.cod-html .boton-copiar:active {
+  transform: scale(1.2);
+  transform: translate(-5%, 5%);
+}
+
+/*# sourceMappingURL=codigo.css.map */
