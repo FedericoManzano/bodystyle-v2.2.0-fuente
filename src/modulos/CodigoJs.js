@@ -1,7 +1,6 @@
 import $ from "jquery"
 
 (function() {
-    let arregloCodigos = new Array()
     let indice = 0
 
 
@@ -95,7 +94,6 @@ import $ from "jquery"
             let codigo = $(e).html()
             $(e).text(codigo)
             codigo = $(e).text()
-            arregloCodigos[index] = $(e).text()
 
 
             let resultado = buscarCadena(codigo)
@@ -103,8 +101,11 @@ import $ from "jquery"
             resultado = buscarComentarioLinea(resultado)
             
             resultado = buscarComentarioBloque(resultado)
-            console.log(resultado)
+           
             resultado = resultado.replace(/function/g, "<span class='bs-js-claves'>function</span>")
+            resultado = resultado.replace(/import/g, "<span class='bs-js-claves'>import</span>")
+            resultado = resultado.replace(/from/g, "<span class='bs-js-claves'>from</span>")
+            resultado = resultado.replace(/require/g, "<span class='bs-js-claves'>require</span>")
             resultado = resultado.replace(/let/g, "<span class='bs-js-bar'>let</span>")
             resultado = resultado.replace(/var/g, "<span class='bs-js-bar'>var</span>")
             resultado = resultado.replace(/constructor/g, "<span class='bs-js-claves'>constructor</span>")
@@ -136,28 +137,13 @@ import $ from "jquery"
 
           
             $(e).html(resultado)
-            $(e).append("<div class='boton-copiar'>Copiar</div>")
-            $(e).children(".boton-copiar").attr("id", index)
         })
     }
 
-
-    const copiar = () => {
-        $("pre .boton-copiar").click((e) => {
-            let numero = Number.parseInt($(e.target).attr("id"))
-            var $temp = $("<textarea></textarea>")
-            $("body").append($temp)
-
-            $temp.val(arregloCodigos[numero]).select()
-            document.execCommand("copy")
-            $temp.remove()
-        })
-    }
 
     const CodigoJs = {
         iniciar: () => {
             inicializar()
-            copiar()
         }
     }
 

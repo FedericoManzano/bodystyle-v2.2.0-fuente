@@ -5,15 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../dist/css/bodystyle.css">
     <link rel="stylesheet" href="../dist/css/codigo.css">
-    <link rel="stylesheet" href="../dist/css/tema-rosa.css">
+    <link rel="stylesheet" href="../dist/css/tema-azul.css">
+    <link rel="stylesheet" href="../dist/css/tema-css.css">
 </head>
 
 <body>
 
     <div class="contenedor">
-        <a  class="btn fd-azul dropdown-toggle" data-target="#drop1">Drop</a>
         <pre class="cod-html">
-        <a  class="btn fd-azul dropdown-toggle" data-target="#drop1">Drop</a>
+            <form >
+                <div class="input-g">
+                    <div class="grupo">
+                        <span class="span-grupo">Ej: nombre@mail.com</span>
+                        <input type="email">
+                        <a class="btn-o btn-gris-c-o" style="min-width: 85px !important">Verificar</a>
+                    </div>
+                </div>
+                <div class="form-grupo">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea class="deshabilitado" name="mensaje" id="" cols="30" rows="80" 
+                    style="resize:none; height: 120px">
+                    </textarea>
+                    <small>Hasta 500 caracteres max</small>
+                </div>
+                <div class="d-flex just-final mar-1">
+                    <a class="btn fd-rojo desactivado">Enviar</a>
+                </div>
+            </form>
         </pre>
 
         <div class="divisor"></div>
@@ -48,16 +66,26 @@
         */
         </pre>
     </div>
-    <div id="drop1" class="dropdown"> <!-- id === data-target -->
-        <ul>
-            <li><a>Perfil</a></li>
-            <li><a>Servicios</a></li>
-            <li><a>Salir</a></li>
-        </ul>
+
+
+    <div class="contenedor mar-5">
+        <pre class="cod-css">
+        .clase {
+            width: center;
+            text-align: center;
+            padding: 3px;
+            margin-top: 50px;
+        }
+
+        .clase2, .clase1, #id:hover {
+            text-align: center
+        }
+        </pre>
     </div>
+    
     <script src="../dist/js/bodystyle.js"></script>
     <script >
-        BS.DropDownInit()
+        BS.CodigoHtmlInit("html")
     </script>
 </body>
 
@@ -68,4 +96,3 @@
         
 </script>
 
-            

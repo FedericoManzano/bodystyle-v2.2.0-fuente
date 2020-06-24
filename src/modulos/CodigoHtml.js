@@ -5,7 +5,6 @@ import $ from "jquery"
 
 
     let indice = 0
-    let arregloCodigos = new Array()
 
     const CARACTER = [
         '+', '/', '='
@@ -30,7 +29,7 @@ import $ from "jquery"
     }
 
     const colorearEtiqueta = (codigo, resultado, pos) => {
-        while(codigo[pos] !== ' ' && codigo[pos] !== '>') {
+        while(codigo[pos] !== ' ' && codigo[pos] !== '>' && codigo[pos] !== '&gt;') {
             resultado += "<span class='bs-html-etquetas'>" + codigo[pos] + "</span>"
             pos ++
         }
@@ -41,7 +40,7 @@ import $ from "jquery"
     }
 
     const colorearAttr = (codigo, resultado, pos) => {
-        while(!esCaracter(codigo[pos]) && codigo[pos] !== ' ' && codigo[pos] !== '>'){
+        while(!esCaracter(codigo[pos]) && codigo[pos] !== ' ' && codigo[pos] !== '>' && codigo[pos] !== '&gt;'){
             resultado += "<span class='bs-html-attr'>" + codigo[pos] + "</span>"
             pos ++
         }
@@ -69,7 +68,7 @@ import $ from "jquery"
     }
 
     const esComentario = (codigo, pos) => {
-        if(codigo[pos] === '<' && codigo[pos + 1] === '!' && codigo[pos + 2] === '-')
+        if((codigo[pos] === '<' || codigo[pos] === '&lt;') && codigo[pos + 1] === '!' && codigo[pos + 2] === '-')
             return true 
         return false
     }
@@ -77,7 +76,7 @@ import $ from "jquery"
     const colorearComentario = (codigo, resultado, pos) => {
         let cadenaAux = codigo.trim().substring(pos, codigo.length)
         let tope = codigo.indexOf("-->")
-        while(cadenaAux.trim() !== '-->' && pos < tope){
+        while((cadenaAux.trim() !== '-->' &&  cadenaAux.trim() !== '--&gt;') && pos < tope){
             resultado += "<span class='bs-html-comentarios'>" + codigo[pos] + "</span>"
             pos ++
             cadenaAux = codigo.substring(pos, codigo.length)
@@ -92,7 +91,7 @@ import $ from "jquery"
     } 
     
     const colorearLinea = (codigo, resultado, pos) => {
-        if(codigo[pos] === '<')
+        if(codigo[pos] === '<' || codigo[pos] === '&lt;')
             resultado = colorearEtiqueta(codigo, resultado, pos)
         pos = indice 
 
@@ -112,7 +111,7 @@ import $ from "jquery"
             resultado = colorearCadena(codigo, resultado, pos)
         }
         pos = indice
-        if(codigo[pos] === '>') {
+        if(codigo[pos] === '>' || codigo[pos] === '&gt;') {
             resultado += "<span class='bs-html-etquetas'>" + codigo[pos] + "</span>"
         }
             
@@ -121,16 +120,24 @@ import $ from "jquery"
     }
 
     
-    const inicializar = () => {
+    const inicializar = (config = "html") => {
         $(".cod-html").each((index, e) => {
-            let codigo = $(e).html()
-            $(e).text(codigo)
-            codigo = $(e).text()
-            arregloCodigos[index] = $(e).text()
+            let codigo = ""
+
+            if(config === "html") {
+                codigo = $(e).html()
+                $(e).text(codigo)
+            } else {
+                codigo = $(e).text()
+                $(e).text(codigo)
+            }
+
+
+    
             let resultado = ""
             for (let i = 0; i < codigo.length; i++) {
-                if(codigo[i] === '<') {
-                    while( !esComentario(codigo, i) && codigo[i] !== '>') {
+                if(codigo[i] === '<' || codigo[i] === "&lt;") {
+                    while( !esComentario(codigo, i) && (codigo[i] !== '>' && codigo[i] !== "&gt;")) {
                         resultado = colorearLinea(codigo, resultado, i)
                         i = indice
                     }
@@ -144,27 +151,12 @@ import $ from "jquery"
             }
 
             $(e).html(resultado)
-            $(e).append("<div class='boton-copiar'>Copiar</div>")
-            $(e).children(".boton-copiar").attr("id", index)
-        })
-    }
-
-    const copiar = () => {
-        $("pre .boton-copiar").click((e) => {
-            let numero = Number.parseInt($(e.target).attr("id"))
-            var $temp = $("<textarea></textarea>")
-            $("body").append($temp)
-
-            $temp.val(arregloCodigos[numero]).select()
-            document.execCommand("copy")
-            $temp.remove()
         })
     }
 
     const CodigoHtml = {
-        iniciar: () => {
-            inicializar()
-            copiar()
+        iniciar: (config) => {
+            inicializar(config)
         }
     }
 
@@ -172,3 +164,5 @@ import $ from "jquery"
 })()
 
 export default CodigoHtml
+     
+

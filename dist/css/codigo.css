@@ -5,7 +5,8 @@
  * Repositorio (https://github.com/FedericoManzano/bodystyle-v2.2.0-fuente)
  */
 pre.cod-html,
-pre.cod-js {
+pre.cod-js,
+pre.cod-css {
   background-color: #f1f1f1;
   overflow: auto;
   padding: 5px 0;
@@ -13,7 +14,8 @@ pre.cod-js {
   position: relative;
 }
 pre.cod-html .boton-copiar,
-pre.cod-js .boton-copiar {
+pre.cod-js .boton-copiar,
+pre.cod-css .boton-copiar {
   position: absolute;
   top: 0;
   right: 0;
@@ -26,7 +28,8 @@ pre.cod-js .boton-copiar {
   transition: all 0.3s;
 }
 pre.cod-html .boton-copiar:active,
-pre.cod-js .boton-copiar:active {
+pre.cod-js .boton-copiar:active,
+pre.cod-css .boton-copiar:active {
   transform: scale(1.2);
   transform: translate(-5%, 5%);
 }

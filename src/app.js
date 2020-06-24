@@ -33,6 +33,8 @@ import Contenedores from "./modulos/Contenedores"
 import Nav from "./modulos/Nav"
 import CodigoHtml from "./modulos/CodigoHtml"
 import CodigoJs from "./modulos/CodigoJs"
+import CodigoCss from "./modulos/CodigoCss"
+
 
 (function(){
     Waves.iniciar()
@@ -42,10 +44,15 @@ import CodigoJs from "./modulos/CodigoJs"
     GruposInput.iniciar()
     Desactivado.iniciar();
     InputHandler.iniciar()
-    CodigoHtml.iniciar()
     CodigoJs.iniciar()
+    CodigoCss.iniciar()
 
     
+    const CodigoHtmlInit = (config) => {
+        CodigoHtml.iniciar(config)
+    }
+
+
     const TemplateDestroy = () => {
         Template.destroy()
     }
@@ -235,7 +242,11 @@ import CodigoJs from "./modulos/CodigoJs"
         NavDestroy: () => NavDestroy(),
 
         // Template
-        TemplateDestroy: () => TemplateDestroy()
+        TemplateDestroy: () => TemplateDestroy(),
+
+        // Codigo 
+
+        CodigoHtmlInit: (config) =>  CodigoHtmlInit(config)
     }
     
     window.BS = BS
