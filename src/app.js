@@ -31,8 +31,8 @@ import InputHandler from "./modulos/InputHandler"
 import Select from "./modulos/Select"
 import Contenedores from "./modulos/Contenedores"
 import Nav from "./modulos/Nav"
-import Codigo from "./modulos/Codigo"
-
+import CodigoHtml from "./modulos/CodigoHtml"
+import CodigoJs from "./modulos/CodigoJs"
 
 (function(){
     Waves.iniciar()
@@ -42,8 +42,10 @@ import Codigo from "./modulos/Codigo"
     GruposInput.iniciar()
     Desactivado.iniciar();
     InputHandler.iniciar()
-    Codigo.iniciar()
+    CodigoHtml.iniciar()
+    CodigoJs.iniciar()
 
+    
     const TemplateDestroy = () => {
         Template.destroy()
     }

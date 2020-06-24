@@ -161,14 +161,14 @@ import $ from "jquery"
         })
     }
 
-    const Codigo = {
+    const CodigoHtml = {
         iniciar: () => {
             inicializar()
             copiar()
         }
     }
 
-    window.Codigo = Codigo
+    window.CodigoHtml = CodigoHtml
 })()
 
-export default Codigo
+export default CodigoHtml
