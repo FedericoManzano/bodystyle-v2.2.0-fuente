@@ -8,7 +8,7 @@ import $ from "jquery"
     let arregloCodigos = new Array()
 
     const CARACTER = [
-        '+', '/', '-', '='
+        '+', '/', '='
     ]
 
     const CADENAS = [
@@ -29,21 +29,13 @@ import $ from "jquery"
         return CADENAS.indexOf(c) !== -1
     }
 
-    const esAperturaCierre = (c) => {
-        return APERTURA_CIERRE.indexOf(c) !== -1
-    }
-
-
     const colorearEtiqueta = (codigo, resultado, pos) => {
         while(codigo[pos] !== ' ' && codigo[pos] !== '>') {
             resultado += "<span class='bs-html-etquetas'>" + codigo[pos] + "</span>"
             pos ++
         }
-
-        if(codigo[pos] === ' ' ) {
+        if(codigo[pos] === ' ' ) 
             resultado += ' '
-        }
-
         indice = pos
         return resultado
     }
@@ -54,10 +46,8 @@ import $ from "jquery"
             pos ++
         }
 
-        if(codigo[pos] === ' ' ) {
+        if(codigo[pos] === ' ' ) 
             resultado += ' '
-        }
-        
         indice = pos
         return resultado
     }
@@ -72,9 +62,8 @@ import $ from "jquery"
         resultado += "<span class='bs-html-cadenas'>" + codigo[pos] + "</span>"
         pos ++ 
 
-        if(codigo[pos] === ' ' ) {
+        if(codigo[pos] === ' ' ) 
             resultado += ' '
-        }
         indice = pos
         return resultado
     }
@@ -94,14 +83,10 @@ import $ from "jquery"
             cadenaAux = codigo.substring(pos, codigo.length)
             
         }
-        resultado += "<span class='bs-html-comentarios'>" + codigo[pos] + "</span>"
-        pos++
-        resultado += "<span class='bs-html-comentarios'>" + codigo[pos] + "</span>"
-        pos++
-        resultado += "<span class='bs-html-comentarios'>" + codigo[pos] + "</span>"
-        pos++
-        resultado += "<span class='bs-html-comentarios'>" + codigo[pos] + "</span>"
-        pos++
+
+        for(var i = pos; i < pos + 4; i ++) 
+            resultado += "<span class='bs-html-comentarios'>" + codigo[i] + "</span>"
+        pos = i
         indice = pos
         return resultado
     } 

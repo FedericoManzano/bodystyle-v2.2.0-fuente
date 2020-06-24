@@ -1,10 +1,10 @@
 
 
 /*!
- * BodyStyle v2.1.1
+ * BodyStyle v2.2.0
  * Copyright Federico Manzano
  * Licencia MIT
- * Repositorio (https://github.com/FedericoManzano/bodystyle-v2.1.1-fuente)
+ * Repositorio (https://github.com/FedericoManzano/bodystyle-v2.2.0-fuente)
  */
 import "jquery"
 import Modal from "./modulos/Modal"

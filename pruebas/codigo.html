@@ -11,20 +11,14 @@
 <body>
 
     <div class="contenedor">
+        <a  class="btn fd-azul dropdown-toggle" data-target="#drop1">Drop</a>
         <pre class="cod-html">
-    
-        <input type="text" required>
-        <p class="clase">
-            <!-- Codifgo prueba
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui ipsam adipisci 
-            molestias, officia ullam, eveniet sapiente ex exercitationem fuga cumque 
-            magni, voluptatem dignissimos sequi illo. Incidunt eveniet vitae velit hic.
-            -->
-        </p>
-    
+        <a  class="btn fd-azul dropdown-toggle" data-target="#drop1">Drop</a>
         </pre>
 
         <div class="divisor"></div>
+
+
         <pre class="cod-html">
         <a class="btn-sm fd-naranja">Chico</a>
         <a class="btn fd-naranja">Mediano</a>
@@ -34,11 +28,17 @@
         <a class="btn-lg fd-naranja desactivado">Grande</a>
         </pre>
     </div>
-
-
-    
-
+    <div id="drop1" class="dropdown"> <!-- id === data-target -->
+        <ul>
+            <li><a>Perfil</a></li>
+            <li><a>Servicios</a></li>
+            <li><a>Salir</a></li>
+        </ul>
+    </div>
     <script src="../dist/js/bodystyle.js"></script>
+    <script >
+        BS.DropDownInit()
+    </script>
 </body>
 
 </html>
