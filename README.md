@@ -74,7 +74,7 @@ de Node.
 
 ### Archivo Precompilado
 
-[bodystyle-v2.2.0-precompilado-master.zip](https://github.com/FedericoManzano/bodystyle-v2.1.1-precompilado/archive/master.zip)
+[bodystyle-v2.2.0-precompilado-master.zip](https://github.com/FedericoManzano/bodystyle-v2.2.0-precompilado/archive/master.zip)
 
 
 ### Archivo Fuente
