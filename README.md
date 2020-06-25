@@ -74,12 +74,12 @@ de Node.
 
 ### Archivo Precompilado
 
-[bodystyle-v2.1.1-precompilado-master.zip](https://github.com/FedericoManzano/bodystyle-v2.1.1-precompilado/archive/master.zip)
+[bodystyle-v2.2.0-precompilado-master.zip](https://github.com/FedericoManzano/bodystyle-v2.1.1-precompilado/archive/master.zip)
 
 
 ### Archivo Fuente
 
-[bodystyle-v2.1.1-fuente-master.zip](https://github.com/FedericoManzano/bodystyle-v2.2.0-fuente/archive/master.zip)
+[bodystyle-v2.2.0-fuente-master.zip](https://github.com/FedericoManzano/bodystyle-v2.2.0-fuente/archive/master.zip)
 
 ### Node package
 Ingresar por el terminal los siguientes comandos para instalar la dependencia de la librería.
@@ -105,7 +105,10 @@ yarn add body-ui
 
 ## Cambios desde la versión 2.1.1
 
-- Capacidad deresaltar el código fuente de `html`, `js`, `css`
+- Capacidad deresaltar el código fuente de `html`, `js`, `css`.
+- Objetos dinámicos con una descripción personalida.
+- Mejoramiento de las barras de navegación.
+- Dropdown refactorizado y depurado respecto versiones anteriores.
 
 ## Licencia
 
