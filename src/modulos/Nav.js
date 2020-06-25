@@ -8,6 +8,15 @@ import $ from "jquery"
     let seidebarCompuestaDesplegada = true
 
 
+
+    const destroy = () => {
+        $(".boton-nav").off("click", desplegarSidebarFija)
+        $(".boton-nav-colapso").off("click", manejadorColapso)
+        $(".boton-desplegable").off()
+        $(".nav-complemento").off()
+        $(window).off("resize", manejadorVentana)
+    }
+
     const cargarComplemento = () => {
         $("body").append("<div class='nav-complemento'></div>")
         $(".nav-complemento").hide()
@@ -169,6 +178,7 @@ import $ from "jquery"
             inicializarColapso()
             inicializarSideBar()
         },
+        destroy: () => destroy()
     }
     window.Nav = Nav
 })()
