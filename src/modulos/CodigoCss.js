@@ -41,7 +41,7 @@ import $ from "jquery"
             $(e).text(codigo)
             codigo = $(e).text()
            
-    
+            
             let resultado = colorearSelectores(codigo)
             resultado = resultado.replace(/width/g, "<span class='bs-prop'>width</span>")
             resultado = resultado.replace(/height/g, "<span class='bs-prop'>height</span>")

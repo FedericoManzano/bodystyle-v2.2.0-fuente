@@ -34,7 +34,7 @@ import Nav from "./modulos/Nav"
 import CodigoHtml from "./modulos/CodigoHtml"
 import CodigoJs from "./modulos/CodigoJs"
 import CodigoCss from "./modulos/CodigoCss"
-
+import ComentarioDinamico from "./modulos/ComentarioDinamico"
 
 (function(){
     Waves.iniciar()
@@ -46,7 +46,7 @@ import CodigoCss from "./modulos/CodigoCss"
     InputHandler.iniciar()
     CodigoJs.iniciar()
     CodigoCss.iniciar()
-
+    ComentarioDinamico.iniciar()
     
     const CodigoHtmlInit = (config) => {
         CodigoHtml.iniciar(config)

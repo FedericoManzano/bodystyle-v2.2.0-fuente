@@ -23399,6 +23399,20 @@ table tbody tr td {
   bottom: calc(-100% - 100px);
 }
 
+.com-dinamico {
+  position: absolute;
+  background-color: white;
+  max-width: 270px;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  color: #303030;
+  z-index: 100000;
+  display: none;
+  line-height: 20px;
+}
+
 .preloader,
 .preloader-sm,
 .preloader-lg {

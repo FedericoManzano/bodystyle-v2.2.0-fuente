@@ -8,7 +8,7 @@ import ERR from './Errores'
     const MODULO = "Error BodyStyle dice: M08"
 
 
-    var configurarDropDown = ({ color = "#fff" } = {}) => {
+    const configurarDropDown = ({ color = "#fff" } = {}) => {
 
         if (!(ERR.hexadecimal.validacion.test(color))) {
             console.error(MODULO + ERR.hexadecimal.mensaje)
@@ -39,89 +39,88 @@ import ERR from './Errores'
     }
 
 
-    var posicionInicialX = (origen, dropdown) => {
-        var x = $(origen).offset().left
+    const posicionInicialX = (origen, dropdown) => {
+        let x = $(origen).offset().left
         $(dropdown).css("left", x)
         return x;
     }
 
-    var posicionInicialY = (origen, dropdown) => {
-        var y = $(origen).offset().top
+    const posicionInicialY = (origen, dropdown) => {
+        let y = $(origen).offset().top
         $(dropdown).css("top", y + $(origen).outerHeight() + 5)
         return y;
     }
 
-    var disabled = () => {
+    const disabled = () => {
         $(".dropdown ul li .disabled").removeAttr("href")
     }
 
-    var effsetIzquierda = (dropdown) => {
-        var offSet = $(dropdown).offset().left;
+    const effsetIzquierda = (dropdown) => {
+        let offSet = $(dropdown).offset().left;
         return offSet <= 0 ? Math.round(offSet * -1 + margin) : 0
     }
 
-    var offsetDerecha = (dropdown) => {
-        var offSet = $(window).width() - $(dropdown).offset().left - $(dropdown).outerWidth();
+    const offsetDerecha = (dropdown) => {
+        let offSet = $(window).width() - $(dropdown).offset().left - $(dropdown).outerWidth();
         return offSet <= 0 ? Math.round(offSet - margin) : 0
     }
 
-    var posicionamientoDropDown = (origen, dropdown) => {
-        var oi = effsetIzquierda(dropdown)
-        var od = offsetDerecha(dropdown)
+    const posicionamientoDropDown = (origen, dropdown) => {
+        let oi = effsetIzquierda(dropdown)
+        let od = offsetDerecha(dropdown)
         if (oi !== 0)
-            $(dropdown).css("left", posicionInicialX(origen, dropdown) + oi);
+            $( dropdown ).css("left", posicionInicialX(origen, dropdown) + oi);
         if (od !== 0)
-            $(dropdown).css("left", posicionInicialX(origen, dropdown) + od);
+            $( dropdown ).css("left", posicionInicialX(origen, dropdown) + od);
     }
 
-    var reiniciarPosicion = (dropdown, origen) => {
+    const reiniciarPosicion = (dropdown, origen) => {
         posicionInicialX(origen, dropdown)
         posicionInicialY(origen, dropdown)
     }
 
 
-    var eventoDrop = (e) => {
-        var boton = $(e.target);
-        var dropdown = $($(e.target).data("target"))
-        reiniciarPosicion(dropdown, e.target)
-        if (presionado === 0 || presionado === undefined) {
-            dropdown.fadeIn(300)
-            posicionamientoDropDown(this, dropdown)
-            boton.children(".f-derecha").hide()
-            boton.children(".f-abajo").show()
-            $(".drop").show()
-            presionado = 1
-        } else {
-            dropdown.hide()
-            reiniciarPosicion(dropdown, e.target)
-            boton.children(".f-derecha").show()
-            boton.children(".f-abajo").hide()
-            $(".drop").hide()
-            presionado = 0
-        }
+    const aparecerDrop = (origen, dropdown) => {
+        $( dropdown ).fadeIn(300)
+        posicionamientoDropDown(origen, dropdown)
+        $( origen ).children(".f-derecha").hide()
+        $( origen ).children(".f-abajo").show()
+        $(".drop").show()
+        presionado = 1
+    }
 
-        $(".drop").click(function () {
-            dropdown.hide()
-            reiniciarPosicion(dropdown, e.target)
-            boton.children(".f-derecha").show()
-            boton.children(".f-abajo").hide()
-            $(".drop").hide()
-            presionado = 0
+    const desaparecerDrop = (origen, dropdown) => {
+        $( dropdown ).hide()
+        reiniciarPosicion(dropdown, origen)
+        $( origen ).children(".f-derecha").show()
+        $( origen ).children(".f-abajo").hide()
+        $(".drop").hide()
+        presionado = 0
+    }
+
+
+    const eventoDrop = (e) => {
+        let boton = e.target
+        let dropdown = $($(e.target).data("target"))
+        reiniciarPosicion(dropdown, boton)
+     
+        if (presionado === 0 || presionado === undefined) 
+            aparecerDrop(boton, dropdown)
+         else 
+            desaparecerDrop(boton, dropdown)
+        
+
+        $(".drop").click( () => {
+            desaparecerDrop(boton, dropdown)
         })
 
-        $(dropdown).click(function () {
-            if (presionado === 1) {
-                dropdown.hide()
-                reiniciarPosicion(dropdown, e.target)
-                boton.children(".f-derecha").show()
-                boton.children(".f-abajo").hide()
-                $(".drop").hide()
-                presionado = 0
-            }
+        $(dropdown).click( () => {
+            if (presionado === 1) 
+                desaparecerDrop(boton, dropdown)
         })
     }
 
-    var dropDown = () => {
+    const dropDown = () => {
         $(".dropdown-toggle").click(eventoDrop)
     }
 
@@ -131,15 +130,14 @@ import ERR from './Errores'
             $(".dropdown-toggle").off()
         }else {
             $(".dropdown-toggle").each( (index,e) => {
-                if(target === $(e).data("target")) {
+                if(target === $(e).data("target")) 
                     $(e).off()
-                }
             })
         }
     }
 
-    var DropDown = {
-        iniciar: function (config) {
+    const DropDown = {
+        iniciar: (config) => {
             configurarDropDown(config)
             dropDown()
             disabled()

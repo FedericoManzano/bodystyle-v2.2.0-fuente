@@ -26,7 +26,6 @@
 
 .bs-js-claves {
   color: #ff32e4 !important;
-  font-weight: 600 !important;
 }
 
 .bs-js-parentesis {
@@ -35,7 +34,6 @@
 
 .bs-js-new {
   color: #8f05c5 !important;
-  font-weight: 600 !important;
 }
 
 .bs-js-func {
@@ -48,7 +46,6 @@
 
 .bs-js-variables {
   color: #7449a5 !important;
-  font-weight: 600 !important;
 }
 
 .bs-js-num {

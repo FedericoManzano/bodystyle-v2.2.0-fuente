@@ -132,7 +132,6 @@ import $ from "jquery"
                 $(e).text(codigo)
             }
 
-
     
             let resultado = ""
             for (let i = 0; i < codigo.length; i++) {
