@@ -19,9 +19,10 @@ import $ from "jquery"
     }
 
     const puedeDerecha = (origen, comentario) => {
-        let anchoComentario = $(comentario).outerWidth()
-        let desplazamientoX = $(origen).offset().left 
-        return $(window).width() - anchoComentario - desplazamientoX > anchoComentario
+        let anchoComentario = $(comentario).width()
+        let desplazamientoX = $(origen).offset().left
+        let anchoOrigen = $(origen).width() 
+        return $(window).width()  - desplazamientoX - anchoOrigen > anchoComentario
     }
 
     const puedeIzquierda = (origen, comentario) => {

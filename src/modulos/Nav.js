@@ -2,26 +2,126 @@ import $ from "jquery"
 
 (function(){
 
-    let colapso = false
-    let colapsoDesplegable = true
+    // SidebarFijaDesplegar
+    let sidebarDesplegada = false
+    let colapsoDesplegable = false
+    let seidebarCompuestaDesplegada = true
 
-    const destroy = () => {
-        $( ".nav-sidebar-desplegable .titulo" ).off()
-        $( ".boton-desplegable" ).off()
-        $( ".boton-nav" ).off()
-        $( window ).off( "resize", ajustarContenido )
+
+    const cargarComplemento = () => {
+        $("body").append("<div class='nav-complemento'></div>")
+        $(".nav-complemento").hide()
+        $(".nav-complemento").click(manejadorComplemento)
+        $(window).resize(manejadorVentana)
+    }
+
+    const manejadorSidebarFija = (id) => {
+        if(!sidebarDesplegada || sidebarDesplegada === undefined) {
+            $(id).css("left", 0)
+            $(".nav-complemento").show()
+            sidebarDesplegada = true
+        } else {
+            $(id).css("left", -240)
+            $(".nav-complemento").hide()
+            sidebarDesplegada = false
+        }
+    }
+    const manejadorVentana = () => {
+        $(".nav-sidebar").css("left", -240)
+        $(".nav-sidebar-desplegable").css("left", -240)
+        $( ".nav-contenido" ).css("width", "100%")
+        $( ".nav-contenido" ).css("margin-left", 0)
+        $(".nav-complemento").hide()
+        sidebarDesplegada = false
+        seidebarCompuestaDesplegada = false
     }
 
 
-    const ajustarContenido = () => {
+    const manejadorComplemento  = (e) => {
+        $(".nav-sidebar").css("left", -240)
+        $(".nav-sidebar-desplegable").css("left", -240)
+        $(".nav-complemento").hide()
+        sidebarDesplegada = false
+        seidebarCompuestaDesplegada = false
+    }
+
+    const desplegarSidebarFija = (e) => {
+        let id= $(e.target).data("trigger")
+            if(id === undefined) 
+                id = $(e.target).parent().data("trigger")
+        manejadorSidebarFija(id)
+    }
+
+    const inicializarNav = () => {
+        $(".nav-sidebar").css("top", $(".nav-body").height())
+        if($(".nav-body").hasClass("nav-fixed")) 
+            $(".nav-sidebar").css("top", $(".nav-body").height()) 
+        else 
+            $(".nav-sidebar").css("top", 0) 
+        $(".boton-nav").append("<span></span><span></span><span></span>")
+        $(".boton-nav").click(desplegarSidebarFija)
+    }
+
+    const manejadorColapso = (e) => {
+        let id= $(e.target).data("trigger")
+            if(id === undefined) 
+                id = $(e.target).parent().data("trigger")
+        if(!colapsoDesplegable || colapsoDesplegable === undefined) {
+            $(id).slideDown(300)
+            colapsoDesplegable = true
+        } else {
+            $(id).slideUp(300)
+            colapsoDesplegable = false
+        }
+    }
+
+    const inicializarColapso = () => {
+        $(".nav-colapso").hide()
+        $(".nav-colapso").css("opacity",1)
+        $(".nav-colapso").css("top", $(".nav-body").height())
+        if($(".nav-body").hasClass("nav-fixed")) {
+            $(".nav-colapso").css("position", "fixed") 
+            $(".nav-colapso").css("top", $(".nav-body").height()) 
+        }
+        
+        $(".boton-nav-colapso").append("<span></span><span></span><span></span>")
+        $(".boton-nav-colapso").click(manejadorColapso)
+    }
+
+
+    const menejadorSidebarCompuesta = (e) => {
+        let idLista = $(e.target).data("target")
+        if($(idLista).hasClass("ab")) {
+            $(idLista).slideUp(200)
+            $(e.target).children(".f-abajo").remove()
+            $(e.target).append("<span class='f-derecha'></span>")
+            $(idLista).removeClass("ab") 
+        }else {
+            $(idLista).slideDown(200)
+            $(e.target).children(".f-derecha").remove()
+            $(e.target).append("<span class='f-abajo'></span>")
+            $(idLista).addClass("ab") 
+        }
+    }
+
+    const inicializarSideBar = () => {
+        $(".nav-sidebar-desplegable .titulo").append("<span class='f-derecha'></span>")
+        $(".nav-sidebar-desplegable ul").hide()
+        if($(".nav-body .boton-desplegable").length > 0) {
+            if(!$(".nav-body").hasClass("nav-fixed")){
+                $(".nav-body").addClass("nav-fixed")
+            }
+        }
+        $(".nav-sidebar-desplegable .titulo").click(menejadorSidebarCompuesta)
+
         if( $( window ).width() < 1024) {
             $( ".nav-contenido" ).css("width", "100%")
             $( ".nav-contenido" ).css("margin-left", 0)
-            colapsoDesplegable = false
+            seidebarCompuestaDesplegada = false
             $(".nav-sidebar-desplegable").css("left", -240)
             $(".nav-complemento").hide()
         }else {
-            if(!colapsoDesplegable) {
+            if(!seidebarCompuestaDesplegada) {
                 $( ".nav-contenido" ).css("width", "100%")
                 $( ".nav-contenido" ).css("margin-left", 0)
             }else {
@@ -30,44 +130,17 @@ import $ from "jquery"
                 $(".nav-sidebar-desplegable").css("left", 0)
             }
         }
-    }
 
-    const resize = () => {
-        $(window).resize( ajustarContenido )
-    }
+        $(".boton-desplegable").append("<span></span><span></span><span></span>")
 
-
-    const inicializarDesplegable = () => {
-        $(".nav-sidebar-desplegable .titulo").append("<span class='f-derecha'></span>")
-        $(".nav-sidebar-desplegable ul").hide()
-        if($(".nav-body .boton-desplegable").length > 0) {
-            if(!$(".nav-body").hasClass("nav-fixed")){
-                $(".nav-body").addClass("nav-fixed")
-            }
-        }
-        $(".nav-sidebar-desplegable .titulo").click( (e) => {
-            let idLista = $(e.target).data("target")
-            
-            if($(idLista).hasClass("ab")) {
-                $(idLista).slideUp(200)
-                $(e.target).children(".f-abajo").remove()
-                $(e.target).append("<span class='f-derecha'></span>")
-                $(idLista).removeClass("ab") 
-            }else {
-                $(idLista).slideDown(200)
-                $(e.target).children(".f-derecha").remove()
-                $(e.target).append("<span class='f-abajo'></span>")
-                $(idLista).addClass("ab") 
-            }
-        })
 
         $(".boton-desplegable").click( function (e) {
             let idColapso = $(e.target).data("trigger")
             if(idColapso === undefined) 
                 idColapso = $(e.target).parent().data("trigger")
-            if(colapsoDesplegable === false || colapsoDesplegable === undefined) {
+            if(seidebarCompuestaDesplegada === false || seidebarCompuestaDesplegada === undefined) {
                 $(idColapso).css("left", 0)
-                colapsoDesplegable = true
+                seidebarCompuestaDesplegada = true
                 if($(window).width() > 1024) {
                     $(".nav-contenido").css("width", "calc(100% - 240px)")
                     $(".nav-contenido").css("margin-left", "240px")
@@ -75,7 +148,7 @@ import $ from "jquery"
                     $(".nav-complemento").show()
             }else {
                 $(idColapso).css("left", -240)
-                colapsoDesplegable = false
+                seidebarCompuestaDesplegada = false
                 if($(window).width() > 1024) {
                     $(".nav-contenido").css("width", "100%")
                     $(".nav-contenido").css("margin-left", 0)
@@ -83,93 +156,23 @@ import $ from "jquery"
                     $(".nav-complemento").hide()
             }
         })
-    }
 
+        $(".nav-complemento").click(manejadorComplemento)
 
-    const desplegar = (e) => {
-        let idColapso = $(e.target).data("trigger")
-        if(idColapso === undefined) 
-            idColapso = $(e.target).parent().data("trigger")
-
-        if($(idColapso).hasClass("nav-sidebar")) {
-            if(colapso === false || colapso === undefined) {
-                $(idColapso).css("left", 0)
-                $(".nav-complemento").show()
-                colapso = true
-            }else {
-                $(idColapso).css("left", -240)
-                $(".nav-complemento").hide()
-                colapso = false
-            } 
-        }else {
-            if(!$(".nav-body").hasClass("nav-fixed"))
-                $(idColapso).css("top", $(".nav-body").offset().top +  $(".nav-body").outerHeight())
-            else {
-                $(idColapso).css("top", $(".nav-body").outerHeight())
-            }
-            if(colapso === false || colapso === undefined) {
-                $(idColapso).slideDown(200)
-                colapso = true
-            }else {
-                $(idColapso).slideUp(200)
-                colapso = false
-            }
-        }
-    }
-    const inicializar = () => {
-        $(".nav-colapso").css("opacity", 1)
-        $(".nav-sidebar").css("top", $(".nav-body").height())
-        inicializarDesplegable()
-        if($(".nav-body").hasClass("nav-fixed")) {
-            $(".nav-sidebar").css("top", $(".nav-body").height()) 
-            $(".nav-sidebar-desplegable").css("top",$(".nav-body").height() )
-        }else {
-            $(".nav-sidebar").css("top", 0) 
-            $(".nav-sidebar-desplegable").css("top",0 )
-        }
-        
-        ajustarContenido()
-        
-        $(".nav-colapso").hide()
-        $(".boton-nav").append("<span></span><span></span><span></span>")
-        $(".boton-desplegable").append("<span></span><span></span><span></span>")
-
-        $("body").append("<div class='nav-complemento'></div>")
-        
-        $(".boton-nav").click((e) => desplegar(e))
-        $(window).scroll( () => {
-            $(".nav-colapso").css("top", $(".nav-body").height())
-        })
-
-        $(window).resize(() => {
-            if($(window).width() > 1030) {
-                $(".nav-colapso").hide()
-                $(".nav-sidebar").css("left", -240)
-                $(".nav-complemento").hide()
-                colapso = false
-            }
-        })
-
-        $(".nav-complemento").click( () => {
-            $(".nav-sidebar").css("left", -240)
-            $(".nav-sidebar-desplegable").css("left", -240)
-            $(".nav-complemento").hide()
-            colapso = false
-            colapsoDesplegable = false
-        })
-        
-        $(".nav-complemento").hide()
     }
 
 
     const Nav = {
         iniciar: () => {
-            inicializar()
-            resize()
+            cargarComplemento()
+            inicializarNav()
+            inicializarColapso()
+            inicializarSideBar()
         },
-        destroy: () => destroy()
     }
     window.Nav = Nav
 })()
 
 export default Nav
+
+

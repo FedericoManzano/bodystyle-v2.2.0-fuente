@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/bodystyle.css">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <nav>
+        <div class="nav-body nav-fixed">
+            <a class="boton-desplegable" data-trigger="#sidebar-desp"></a>
+            <a href="#" class="nav-logo">Logo</a>
+            <ul class="lista ocultar-desde-medianos derecha">
+                <li><a class="desactivado">Inicio</a></li>
+                <li><a>Porfolio</a></li>
+                <li><a>Servicios</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="nav-contenido mar-10 p-2">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut, modi cupiditate minima eum, culpa tenetur recusandae quis praesentium at explicabo fugit libero possimus ad nesciunt illo cum. Sit, laborum?</p>
+    </div>
+    <div id="sidebar-desp" class="nav-sidebar-desplegable">
+        <div class="titulo" data-target="#lista1">Titulo</div>
+            <ul class="lista" id="lista1">
+                <li><a class="desactivado">Inicio</a></li>
+                <li><a>Porfolio</a></li>
+                <li><a>Servicios</a></li>
+            </ul>
+            <div class="titulo" data-target="#lista2">Titulo2</div>
+            <ul class="lista" id="lista2">
+                <li><a class="desactivado">Inicio</a></li>
+                <li><a>Porfolio</a></li>
+                <li><a>Servicios</a></li>
+            </ul>
+      </div>
+    
+    
+
+
+    <script src="../dist//js/bodystyle.js"></script>
+    <script>BS.NavInit()</script>
+</body>
+</html>

@@ -95,6 +95,7 @@
     }
 
     .boton-nav,
+    .boton-nav-colapso,
     .boton-desplegable {
         padding: 10px 15px;
         border-radius: 5px;
@@ -118,7 +119,8 @@
 
 
 
-    .boton-nav {
+    .boton-nav,
+    .boton-nav-colapso {
         display: none;
         @media (max-width: 1024px) {
             & {
@@ -187,14 +189,13 @@
 }
 
 .nav-colapso {
-    position: fixed;
     width: 100%;
     padding: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.123);
     z-index: 10000000;
     background-color: white;
     opacity: 0;
-    .lista {
+    .lista-colapso {
         li {
             a {
                 display: block;

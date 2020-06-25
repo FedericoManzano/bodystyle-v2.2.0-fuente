@@ -24377,6 +24377,7 @@ input.btn-cubrir-lg-o {
   }
 }
 .nav-body .boton-nav,
+.nav-body .boton-nav-colapso,
 .nav-body .boton-desplegable {
   padding: 10px 15px;
   border-radius: 5px;
@@ -24386,6 +24387,7 @@ input.btn-cubrir-lg-o {
   margin-right: 1em;
 }
 .nav-body .boton-nav span,
+.nav-body .boton-nav-colapso span,
 .nav-body .boton-desplegable span {
   width: 24px;
   height: 2.5px;
@@ -24394,14 +24396,17 @@ input.btn-cubrir-lg-o {
   z-index: -1;
 }
 .nav-body .boton-nav:hover,
+.nav-body .boton-nav-colapso:hover,
 .nav-body .boton-desplegable:hover {
   background-color: rgba(255, 255, 255, 0.199);
 }
-.nav-body .boton-nav {
+.nav-body .boton-nav,
+.nav-body .boton-nav-colapso {
   display: none;
 }
 @media (max-width: 1024px) {
-  .nav-body .boton-nav {
+  .nav-body .boton-nav,
+.nav-body .boton-nav-colapso {
     display: flex;
     flex-direction: column;
   }
@@ -24455,7 +24460,6 @@ input.btn-cubrir-lg-o {
 }
 
 .nav-colapso {
-  position: fixed;
   width: 100%;
   padding: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.123);
@@ -24463,17 +24467,17 @@ input.btn-cubrir-lg-o {
   background-color: white;
   opacity: 0;
 }
-.nav-colapso .lista li a {
+.nav-colapso .lista-colapso li a {
   display: block;
   width: 100%;
   padding: 10px;
   color: black;
   font-size: 18px;
 }
-.nav-colapso .lista li a.activo {
+.nav-colapso .lista-colapso li a.activo {
   color: orangered;
 }
-.nav-colapso .lista li a.desactivado {
+.nav-colapso .lista-colapso li a.desactivado {
   color: grey !important;
 }
 
