@@ -29,12 +29,6 @@ import $ from "jquery"
     }
 
 
-
-
-
-
-
-
     const inicializar = () => {
         $(".cod-css").each((index, e) => {
             let codigo = $(e).html()
@@ -43,12 +37,14 @@ import $ from "jquery"
            
             
             let resultado = colorearSelectores(codigo)
-            resultado = resultado.replace(/width/g, "<span class='bs-prop'>width</span>")
-            resultado = resultado.replace(/height/g, "<span class='bs-prop'>height</span>")
+            
+            
             resultado = resultado.replace(/max-width/g, "<span class='bs-prop'>max-width</span>")
             resultado = resultado.replace(/max-height/g, "<span class='bs-prop'>max-height</span>")
             resultado = resultado.replace(/min-width/g, "<span class='bs-prop'>min-width</span>")
             resultado = resultado.replace(/min-height/g, "<span class='bs-prop'>min-height</span>")
+            resultado = resultado.replace(/width/g, "<span class='bs-prop'>width</span>")
+            resultado = resultado.replace(/height/g, "<span class='bs-prop'>height</span>")
 
             /** Fuentes */
             resultado = resultado.replace(/font-family/g, "<span class='bs-prop'>font-family</span>")
@@ -60,12 +56,35 @@ import $ from "jquery"
 
 
             // Colores
+            
             resultado = resultado.replace(/background-color/g, "<span class='bs-prop'>background-color</span>")
+            resultado = resultado.replace(/color/g, "<span class='bs-prop'>color</span>")
             resultado = resultado.replace(/background-image/g, "<span class='bs-prop'>background-image</span>")
             resultado = resultado.replace(/background-repeat/g, "<span class='bs-prop'>background-repeat</span>")
             resultado = resultado.replace(/background-attachment/g, "<span class='bs-prop'>background-attachment</span>")
             resultado = resultado.replace(/background-position/g, "<span class='bs-prop'>background-position</span>")
             resultado = resultado.replace(/opacity/g, "<span class='bs-prop'>opacity</span>")
+
+
+            // Medidas 
+            resultado = resultado.replace(/px/g, "<span class='bs-medidas'>px</span>")
+            resultado = resultado.replace(/rem/g, "<span class='bs-medidas'>rem</span>")
+            resultado = resultado.replace(/em/g, "<span class='bs-medidas'>em</span>")
+            resultado = resultado.replace(/%/g, "<span class='bs-medidas'>%</span>")
+           
+
+            resultado = resultado.replace(/0/g, "<span class='bs-medidas'>0</span>")
+            resultado = resultado.replace(/1/g, "<span class='bs-medidas'>1</span>")
+            resultado = resultado.replace(/2/g, "<span class='bs-medidas'>2</span>")
+            resultado = resultado.replace(/3/g, "<span class='bs-medidas'>3</span>")
+            resultado = resultado.replace(/4/g, "<span class='bs-medidas'>4</span>")
+            resultado = resultado.replace(/5/g, "<span class='bs-medidas'>5</span>")
+            resultado = resultado.replace(/6/g, "<span class='bs-medidas'>6</span>")
+            resultado = resultado.replace(/7/g, "<span class='bs-medidas'>7</span>")
+            resultado = resultado.replace(/8/g, "<span class='bs-medidas'>8</span>")
+            resultado = resultado.replace(/9/g, "<span class='bs-medidas'>9</span>")
+            
+            
 
 
             // Texto
@@ -97,13 +116,13 @@ import $ from "jquery"
             resultado = resultado.replace(/margin-right/g, "<span class='bs-prop'>margin-right</span>")
             resultado = resultado.replace(/margin/g, "<span class='bs-prop'>margin</span>")
 
-
+            
             resultado = resultado.replace(/border-top-width/g, "<span class='bs-prop'>border-top-width</span>")
             resultado = resultado.replace(/border-left-width/g, "<span class='bs-prop'>border-left-width</span>")
             resultado = resultado.replace(/border-bottom-width/g, "<span class='bs-prop'>border-bottom-width</span>")
             resultado = resultado.replace(/border-right-width/g, "<span class='bs-prop'>border-right-width</span>")
             resultado = resultado.replace(/border-width/g, "<span class='bs-prop'>border-width</span>")
-
+            
 
             resultado = resultado.replace(/border-top-color/g, "<span class='bs-prop'>border-top-color</span>")
             resultado = resultado.replace(/border-left-color/g, "<span class='bs-prop'>border-left-color</span>")
@@ -122,9 +141,12 @@ import $ from "jquery"
             resultado = resultado.replace(/border-right/g, "<span class='bs-prop'>border-right</span>")
             resultado = resultado.replace(/border-bottom/g, "<span class='bs-prop'>border-bottom</span>")
             resultado = resultado.replace(/border-left/g, "<span class='bs-prop'>border-left</span>")
-            resultado = resultado.replace(/border/g, "<span class='bs-prop'>border-style</span>")
+            
 
             resultado = resultado.replace(/border-radius/g, "<span class='bs-prop'>border-radius</span>")
+            resultado = resultado.replace(/border/g, "<span class='bs-prop'>border</span>")
+
+
             resultado = resultado.replace(/display/g, "<span class='bs-prop'>display</span>")
             resultado = resultado.replace(/position/g, "<span class='bs-prop'>position</span>")
             resultado = resultado.replace(/bottom/g, "<span class='bs-prop'>bottom</span>")
@@ -132,8 +154,15 @@ import $ from "jquery"
             resultado = resultado.replace(/top/g, "<span class='bs-prop'>top</span>")
             resultado = resultado.replace(/right/g, "<span class='bs-prop'>right</span>")
 
+
+            resultado = resultado.replace(/justify-contenet/g, "<span class='bs-prop'>justify-contenet</span>")
+            resultado = resultado.replace(/align-item/g, "<span class='bs-prop'>align-item</span>")
+            resultado = resultado.replace(/align-content/g, "<span class='bs-prop'>align-content</span>")
+            resultado = resultado.replace(/flex-wrap/g, "<span class='bs-prop'>flex-wrap</span>")
+            resultado = resultado.replace(/flex-direction/g, "<span class='bs-prop'>flex-direction</span>")
+
+
             resultado = resultado.replace(/box-sizing/g, "<span class='bs-prop'>box-sizing</span>")
-            resultado = resultado.replace(/z-index/g, "<span class='bs-prop'>z-index</span>")
             resultado = resultado.replace(/float/g, "<span class='bs-prop'>float</span>")
             resultado = resultado.replace(/clear/g, "<span class='bs-prop'>clear</span>")
             resultado = resultado.replace(/z-index/g, "<span class='bs-prop'>z-index</span>")
@@ -141,6 +170,16 @@ import $ from "jquery"
             resultado = resultado.replace(/right/g, "<span class='bs-prop'>right</span>")
 
 
+            resultado = resultado.replace(/transform/g, "<span class='bs-prop'>transform</span>")
+            resultado = resultado.replace(/transition/g, "<span class='bs-prop'>transition</span>")
+            resultado = resultado.replace(/-moz-/g, "<span class='bs-prop'>-moz-</span>")
+            resultado = resultado.replace(/-ms-/g, "<span class='bs-prop'>-ms-</span>")
+            resultado = resultado.replace(/-o-/g, "<span class='bs-prop'>-o-</span>")
+            resultado = resultado.replace(/-webkit-/g, "<span class='bs-prop'>-webkit-</span>")
+
+
+
+            
             $(e).html(resultado)
         })
     }

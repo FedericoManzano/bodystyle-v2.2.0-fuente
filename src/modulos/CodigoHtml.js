@@ -11,7 +11,8 @@ import $ from "jquery"
     ]
 
     const CADENAS = [
-        '"'
+        '"',
+        "'"
     ]
 
     const APERTURA_CIERRE = [
@@ -63,6 +64,8 @@ import $ from "jquery"
 
         if(codigo[pos] === ' ' ) 
             resultado += ' '
+        if(codigo[pos] === '\n')
+            resultado += '\n'
         indice = pos
         return resultado
     }
@@ -123,7 +126,7 @@ import $ from "jquery"
     const inicializar = (config = "html") => {
         $(".cod-html").each((index, e) => {
             let codigo = ""
-
+           
             if(config === "html") {
                 codigo = $(e).html()
                 $(e).text(codigo)
