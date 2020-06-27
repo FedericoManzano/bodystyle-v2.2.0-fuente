@@ -24578,98 +24578,140 @@ input.btn-cubrir-lg-o {
 }
 
 .slider-show {
-  width: 100%;
-  height: 100%;
   position: relative;
+  height: 90%;
+  min-height: 350px;
   overflow: hidden;
-  background-color: black;
 }
-@media (max-width: 1024px) {
-  .slider-show {
-    height: 70%;
-  }
-}
-.slider-show .slider li {
+.slider-show .slider {
   width: 100%;
   height: 100%;
+}
+.slider-show .slider .item {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  height: 100%;
 }
-.slider-show .slider li img {
-  position: absolute;
-  top: -100;
-  max-width: 100%;
-  min-height: 100%;
+.slider-show .slider .item img {
+  min-width: 100%;
 }
-.slider-show .slider li .contenido {
-  z-index: 10;
+.slider-show .slider .item .info {
   position: absolute;
   text-align: center;
   color: white;
-  margin: auto;
+  top: 0;
   width: 100%;
-  padding: 20px;
+  height: 100%;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.541);
 }
-.slider-show .slider li .contenido h2 {
-  line-height: 80px;
-  font-size: 60px;
-  font-weight: 300;
+.slider-show .slider .item .info * {
   margin-bottom: 20px;
 }
-.slider-show .slider li .contenido h4 {
-  font-weight: 600;
-}
-.slider-show .slider li .contenido p {
-  line-height: 30px;
-}
-.slider-show .botones {
+.slider-show .slider .f {
   position: absolute;
-  top: calc(50% - 20px);
-  z-index: 10000;
-  height: 40px;
-  color: white;
-  font-size: 35px;
+  height: 30px;
   width: 100%;
+  top: calc(50% - 15px);
   left: 0;
-  right: 0;
+  z-index: 100000;
 }
-.slider-show .botones span {
-  height: 40px;
-  width: 40px;
-  position: absolute;
+.slider-show .slider .f .f-der,
+.slider-show .slider .f .f-izq {
+  width: 30px;
+  height: 30px;
+  z-index: 350000000;
   cursor: pointer;
 }
-.slider-show .botones span:first-child {
-  left: -20%;
-  transition: left 0.5s ease;
-}
-.slider-show .botones span:last-child {
-  right: -20%;
-  transition: right 0.5s ease;
-}
-.slider-show .selectores-contenedor {
+.slider-show .slider .f .f-der:before, .slider-show .slider .f .f-der:after,
+.slider-show .slider .f .f-izq:before,
+.slider-show .slider .f .f-izq:after {
+  content: "";
   position: absolute;
-  display: flex;
-  bottom: 3%;
-  left: 0;
+  width: 20px;
+  height: 4px;
+  right: 7.5px;
+  background-color: rgba(255, 255, 255, 0.842);
+  cursor: pointer;
+  z-index: 3000;
+}
+.slider-show .slider .f .f-der:hover ::before, .slider-show .slider .f .f-der::after ::after,
+.slider-show .slider .f .f-izq:hover ::before,
+.slider-show .slider .f .f-izq::after ::after {
+  background-color: white;
+}
+.slider-show .slider .f .f-der::before,
+.slider-show .slider .f .f-izq::before {
+  top: 7px;
+  transform: rotate(45deg);
+}
+.slider-show .slider .f .f-der:after,
+.slider-show .slider .f .f-izq:after {
+  bottom: 7px;
+  transform: rotate(-45deg);
+}
+.slider-show .slider .f .f-izq:before, .slider-show .slider .f .f-izq:after {
+  left: 7.5px;
+}
+.slider-show .slider .f .f-izq::before {
+  top: 7px;
+  transform: rotate(-45deg);
+}
+.slider-show .slider .f .f-izq:after {
+  bottom: 7px;
+  transform: rotate(45deg);
+}
+.slider-show .slider .selectores {
+  position: absolute;
+  bottom: 30px;
   width: 100%;
+  z-index: 10000;
+  display: flex;
   justify-content: center;
 }
-.slider-show .selectores {
-  height: 3px;
+.slider-show .slider .selectores span {
+  margin-left: 8px;
+  height: 4px;
+  width: 20px;
   background-color: grey;
-  margin-left: 3px;
-  width: 16px;
   cursor: pointer;
-  bottom: 3%;
 }
-.slider-show:hover .botones span:first-child {
-  left: 3%;
+.slider-show .slider .selectores span.activo {
+  background-color: orangered;
 }
-.slider-show:hover .botones span:last-child {
-  right: 3%;
+@media (max-width: 1030px) {
+  .slider-show {
+    height: 60%;
+  }
+}
+@media (max-width: 770px) {
+  .slider-show {
+    height: 40%;
+  }
+  .slider-show .slider .item p {
+    display: none;
+  }
+  .slider-show .slider .item h4 {
+    font-size: 20px;
+  }
+  .slider-show .slider .item h1 {
+    font-size: 30px;
+  }
+}
+@media (max-width: 400px) {
+  .slider-show {
+    height: 30%;
+  }
+  .slider-show .slider .item h4 {
+    display: none;
+  }
 }
 
 .lista-contenedor {

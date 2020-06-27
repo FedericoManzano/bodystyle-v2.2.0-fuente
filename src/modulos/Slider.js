@@ -4,203 +4,122 @@ import ERR from "./Errores"
 
 (function(){
 
+    let seleccionado = 1
+    const cantidad = $(".slider-show .slider .item").length
+    let intervalo = null
 
 
-    var cantidadElementos = $(".slider li").length
-    var elementos = new Array(cantidadElementos)
-    var selectores = new Array(cantidadElementos)
-    var seleccionado = 0
-    var config = {}
-    var timer = null
 
-    var validarConfig = ( efecto, tiempo ) => {
-
-        const MODULO = "Error BodyStyle dice: M27"
-
-        if(!ERR.efecto.validacion(efecto)){
-            console.error(MODULO + ERR.efecto.mensaje)
-            return false
-        }
-
-        if(!ERR.positivos.validacion(tiempo)){
-            console.error(MODULO + ERR.positivos.mensaje)
-            return false
-        }
-
-        return true
-    }
-
-
-    var Inicializar = ({    
-                            efecto = "lateral", 
-                            automatico = false, 
-                            tiempo = 3000, 
-                            select = true 
-                        } = {}
-    ) => {
+    const inicializar = ({
+        selectores = true, 
+        flechas = true, 
+        automatico = false, 
+        tiempo = 3000} = {}) => {
+       
+        $("html").css("height", "100%")
+        $("body").css("height", "100%")
         
-        if(!validarConfig(efecto, tiempo))
-            return
+        $(".slider-show .slider .item").css("display", "none")
+        $(".slider-show .slider .item:nth-child(1)").show()
+        
 
-        config.efecto = efecto
-        config.automatico = automatico
-        config.tiempo = tiempo
-        config.select = select
-        $("html, body").css("height","100%")
+        if(selectores){
+            $(".slider-show .slider").append(`
+            <div class='selectores'>
+            </div>
+            `)
 
-
-        for(var i = 0; i < cantidadElementos; i ++){
-            if(config.select === true){
-                selectores[i] = $("<span class='selectores'></span>")
-                $(".selectores-contenedor").append(selectores[i])
+            for(let i = 0; i < cantidad; i ++) {
+                $(".slider-show .slider .selectores").append("<span></span>")
             }
-            elementos[i] = $(".slider li:nth-child(" + (i + 1) + ")")
-            $(elementos[i]).hide()
-        }
-        $($(elementos[0])).show()
-        if(config.select === true){
-            $(selectores[0]).css("background-color", "orangered")
-        }
-        if(config.automatico){
-            arrancarCronometro()
-        }
-    } 
 
-
-    var salida = () => {
-        $(window).blur(function(){
-            if(config.automatico)
+            $(".slider-show .slider .selectores span").click((e) => {
                 pararCronometro()
-        })
-
-        $(window).focus(function(){
-            if(config.automatico)
-                arrancarCronometro()
-        })
-    }
-
-    var siguiente = (seleccionado) => {
-        return seleccionado + 1 >= cantidadElementos ? 0: seleccionado + 1;
-    }
-
-    var atras = (seleccionado) => {
-        return seleccionado - 1 <= -1 ? cantidadElementos- 1 : seleccionado - 1;
-    }
-
-    var efectoFade = ( direccion) => {
-        if(config.automatico)
-            pararCronometro()
-        if(direccion === "derecha") {
-            $(elementos[seleccionado]).fadeOut(300)
-            $(elementos[siguiente(seleccionado)]).fadeIn(300)
-            $(selectores[seleccionado]).css("background-color", "grey")
-            $(selectores[siguiente(seleccionado)]).css("background-color", "orangered")
-            seleccionado = siguiente(seleccionado)
-        }else {
-            $(elementos[seleccionado]).fadeOut(300)
-            $(elementos[atras(seleccionado)]).fadeIn(300)
-            $(selectores[seleccionado]).css("background-color", "grey")
-            $(selectores[atras(seleccionado)]).css("background-color", "orangered")
-            seleccionado = atras(seleccionado)
-        }
-        if(config.automatico)
-            arrancarCronometro()
-    }
-
-    var efectoLateral = (sel, direccion) => {
-        if(config.automatico)
-            pararCronometro()
-        if(direccion === "izquierda"){
-            $(elementos[sel]).animate({
-                left: "-100%"
-            }, 500, function() {
-                $(elementos[sel]).hide()
-                $(elementos[sel]).css("left", 0)
-                $(elementos[siguiente(sel)]).fadeIn()
-                $(selectores[sel]).css("background-color", "grey")
-                $(selectores[siguiente(sel)]).css("background-color", "orangered")
-                seleccionado = siguiente(sel)
+                let ind = $(e.target).index()
+                $(".slider-show .slider .item:nth-child(" + (seleccionado) +")").fadeOut(300)
+                $(".slider-show .slider .selectores span:nth-child(" + seleccionado + ")").removeClass("activo")
+                seleccionado = ind + 1
+                $(".slider-show .slider .item:nth-child(" + (seleccionado ) +")").fadeIn(300)
+                $(".slider-show .slider .selectores span:nth-child(" + seleccionado + ")").addClass("activo")
+                activarCronometo()
             })
 
-        }else {
-            $(elementos[sel]).animate({
-                left: "100%"
-            }, 500, function() {
-                $(elementos[sel]).hide()
-                $(elementos[sel]).css("left", 0)
-                $(elementos[atras(sel)]).fadeIn()
-                $(selectores[sel]).css("background-color", "grey")
-                $(selectores[atras(sel)]).css("background-color", "orangered")
-                seleccionado = atras(sel)
-
-            })
+            $(".slider-show .slider .selectores span:nth-child(1)").addClass("activo")
         }
-        if(config.automatico)
-            arrancarCronometro()
-    }
+        
+        if(flechas) {
+            $(".slider-show .slider").append(`
+            <div class='f'>
+                <div class='f-der'></div>
+                <div class='f-izq'></div>
+            </div>
+            `)
 
-    var pararCronometro = () => {
-        clearInterval(timer)
-        timer = null
-    } 
-
-    var arrancarCronometro = () => {
-        if(!timer)
-            timer = setInterval(efectoCronometro, config.tiempo)
-    }
-
-    var efectoCronometro = () => {
-        $(elementos[seleccionado]).fadeOut(500)
-        $(elementos[siguiente(seleccionado)]).fadeIn(500)
-        $(selectores[seleccionado]).css("background-color", "grey")
-        $(selectores[siguiente(seleccionado)]).css("background-color", "orangered")
-        seleccionado = siguiente(seleccionado)
-    }
-
-    var selectores = () => {
-        $(".selectores").click(function(){
-            if(config.automatico)
+            $(".slider-show .slider .f .f-der").click( (e) => {
                 pararCronometro()
-            var ind = $(this).index()
-            $(elementos[seleccionado]).fadeOut(300)
-            $(elementos[ind]).fadeIn(300)
-            $(selectores[seleccionado]).css("background-color", "grey")
-            $(selectores[ind]).css("background-color", "orangered")
-            seleccionado = ind
-            if(config.automatico)
-                arrancarCronometro()
-        })
-    }
-
-
-    var botones = () => {
-
-        if(config.efecto === "lateral"){
-            $(".botones span:first-child").click(function(){
-                efectoLateral(seleccionado,"izquierda")
+                efectofadeAdelante()
+                activarCronometo()
             })
     
-            $(".botones span:last-child").click(function(){
-                efectoLateral(seleccionado,"derecha")
-                
+            $(".slider-show .slider .f .f-izq").click( (e) => {
+                pararCronometro()
+                efectofadeAtras()
+                activarCronometo()
             })
-        }else {
-            $(".botones span:first-child").click(function(){
-                efectoFade("izquierda")
+        }
+
+        const adelante = () => {
+            return seleccionado === cantidad  ? 1 : seleccionado + 1
+        }
+
+        const atras = () => {
+            return seleccionado === 1  ? cantidad : seleccionado - 1
+        }
+
+
+        const efectofadeAdelante = () => {
+            $(".slider-show .slider .item:nth-child(" + (seleccionado) +")").fadeOut(300)
+            $(".slider-show .slider .selectores span:nth-child(" + seleccionado + ")")
+                .removeClass("activo")
+            seleccionado = adelante()
+            $(".slider-show .slider .item:nth-child(" + (seleccionado ) +")").fadeIn(300)
+            $(".slider-show .slider .selectores span:nth-child(" + seleccionado + ")")
+                .addClass("activo")
+        } 
+
+        const efectofadeAtras = () => {
+            $(".slider-show .slider .item:nth-child(" + (seleccionado) +")").fadeOut(300)
+            $(".slider-show .slider .selectores span:nth-child(" + seleccionado + ")").removeClass("activo")
+            seleccionado = atras()
+            $(".slider-show .slider .item:nth-child(" + (seleccionado ) +")").fadeIn(300)
+            $(".slider-show .slider .selectores span:nth-child(" + seleccionado + ")").addClass("activo")
+        }
+
+
+        const activarCronometo = () => {
+            intervalo = setInterval(() => {
+                efectofadeAdelante()
+            }, tiempo);
+        } 
+
+        const pararCronometro = () => {
+            clearInterval(intervalo)
+        } 
+
+        if(automatico) {
+            activarCronometo()
+            $(window).focus(() => {
+                activarCronometo()
             })
-    
-            $(".botones span:last-child").click(function(){
-                efectoFade("derecha")
+            $(window).blur(() => {
+                pararCronometro()
             })
         }
     }
 
     var Slider = {
         iniciar: (config)=> {
-            Inicializar(config)
-            botones()
-            selectores()
-            salida()
+            inicializar(config)
         }
     }
 
