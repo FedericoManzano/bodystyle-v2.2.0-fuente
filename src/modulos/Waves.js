@@ -1,20 +1,26 @@
 
 
 import $ from 'jquery'
-
+import ERR from "./GestionErrores"
 
 (function(){
     const efecto = () => {
         $(".waves").click(function(e){
-            var color = $($(this)).data("color")
-            var boton = $(this)
-            var elemento = null
-            elemento = $("<span class='efecto-waves'></span>")
-            if(color !== undefined && color !== "")
+            var color = $(e.target).data("color")
+            var boton = $(e.target)
+
+            if(color !== undefined && color !== "") {
+                if(!ERR.fondo.val(color)) {
+                    console.error("(WAVES)" + ERR.fondo.mje + " Revise el attr data-color='fd-[color]'")
+                    return
+                }
                 $(elemento).addClass(color)
-            
+            }
+
+            var elemento = $("<span class='efecto-waves'></span>")
+           
         
-            elemento.css({
+            $(elemento).css({
                 width: 10,
                 height: 10,
                 left: e.offsetX,
@@ -24,14 +30,14 @@ import $ from 'jquery'
                 height: 200,
                 opacity: 0
             }, 500, function(){
-                $(this).remove()
+                $(elemento).remove()
             })
         })
     }
 
     var Waves = {
-        iniciar: function($){
-            efecto($)
+        iniciar: function(){
+            efecto()
         }
     }
     window.Waves = Waves

@@ -1,6 +1,6 @@
 
 import $ from 'jquery'
-
+import ERR from "./GestionErrores"
 
 (function(){
 
@@ -90,13 +90,16 @@ import $ from 'jquery'
      * @param {Info a mostrar por el tips} info 
      */
     const validarTips = (posicion, info) => {
-        if( posicion !== "arriba"       && 
-            posicion !== "abajo"        &&
-            posicion !== "izquierda"    && 
-            posicion !== "derecha" )
-                return false
-        if(info === "" || info === undefined)
+        if( !ERR.posicion.val(posicion)) {
+            console.error("(TOOLTIPS)" + ERR.posicion.mje + " En formato [string]")
             return false
+        }
+                
+        if(!ERR.info.val(info)) {
+            console.error("(TOOLTIPS)" + ERR.info.mje + " Revise el attr data-tips='[info]'") 
+            return false
+        }
+            
         return true
     }
 
@@ -263,6 +266,7 @@ import $ from 'jquery'
                         posicionamientoAbajo(this)
                     }
                   break;
+                  
             }
 
             

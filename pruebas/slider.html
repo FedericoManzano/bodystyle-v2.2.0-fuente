@@ -8,44 +8,51 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="slider-show">
-        <ul class="slider">
-            <li class="item">
-                <img src="https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107_960_720.jpg" alt="">
-                <div class="info">
-                    <div class="ancho-40 ancho-m-50 ancho-s-80">
-                        <h4>Este es el slider de bodystyle</h4>
-                        <h1>Titulo del slider</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, cum. Culpa labore facilis atque recusandae?</p>
+
+    <section id="slider">
+        <div class="slider-show">
+            <ul class="slider">
+                <li class="item">
+                    <img src="https://cdn.pixabay.com/photo/2011/12/14/12/21/orion-nebula-11107_960_720.jpg" alt="">
+                    <div class="info just-centrada">
+                        <div class="ancho-40 ancho-m-50 ancho-s-80">
+                            <h4>Este es el slider de bodystyle</h4>
+                            <h1 class="t-may">BodyStyle UI</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, cum. Culpa labore facilis atque recusandae?</p>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="item">
-                <img src="https://cdn.pixabay.com/photo/2016/10/20/18/35/sunrise-1756274_960_720.jpg" alt="">
-                <div class="info">
-                    <div class="ancho-40 ancho-m-50 ancho-s-80">
-                        <h4>Este es el slider de bodystyle</h4>
-                        <h1>Titulo del slider</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, cum. Culpa labore facilis atque recusandae?</p>
+                </li>
+                <li class="item">
+                    <img src="https://cdn.pixabay.com/photo/2016/10/20/18/35/sunrise-1756274_960_720.jpg" alt="">
+                    <div class="info a-i just-inicio">
+                        <div class="ancho-40 ancho-m-50 ancho-s-80">
+                            <h4>Librería de estilos CSS</h4>
+                            <h1 class="t-may">Frontend Web</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, cum. Culpa labore facilis atque recusandae?</p>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="item">
-                <img src="https://cdn.pixabay.com/photo/2011/12/15/11/37/solar-system-11188_960_720.jpg" alt="">
-                <div class="info">
-                    <div class="ancho-40 ancho-m-50 ancho-s-80">
-                        <h4>Este es el slider de bodystyle</h4>
-                        <h1>Titulo del slider</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, cum. Culpa labore facilis atque recusandae?</p>
+                </li>
+                <li class="item">
+                    <img src="https://cdn.pixabay.com/photo/2011/12/15/11/37/solar-system-11188_960_720.jpg" alt="">
+                    <div class="info a-d just-final">
+                        <div class="ancho-40 ancho-m-50 ancho-s-80">
+                            <h4>Interfaz de Usuario</h4>
+                            <h1 class="t-may">Mejorar la apariencia</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Officiis, cum. Culpa labore facilis atque recusandae?
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </section>
+    
 
     <script src="../dist/js/bodystyle.js"></script>
     <script>
-        BS.SliderInit({automatico: true, selectores:false, tiempo: 5000})
+        BS.SliderInit({contexto: "#slider", automatico:true, tiempo: 10000})
     </script>
 </body>
 </html>

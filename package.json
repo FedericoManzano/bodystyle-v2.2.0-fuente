@@ -1,7 +1,7 @@
 {
   "name": "body-ui",
-  "version": "2.2.0",
-  "description": "v2.2.0 de la librería de estilos CSS BodyStyle",
+  "version": "2.2.1",
+  "description": "v2.2.1 de la librería de estilos CSS BodyStyle",
   "main": "dist/js/bodystyle.js",
   "scripts": {
     "build": "webpack"

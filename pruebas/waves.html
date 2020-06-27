@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/css/bodystyle.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="contenedor mar-2">
+        <a  class="btn fd-rojo waves" >Boton</a>
+    </div>
+
+
+    <div class="contenedor mar-2">
+        <a  class="btn fd-rojo tips-ele" data-posicion=arriba data-tips="Soy">Boton</a>
+    </div>
+
+
+    <div class="contenedor mar-2">
+        <a  class="btn fd-rojo" onclick="mostrar()">Boton</a>
+    </div>
+    
+    <script src="../dist/js/bodystyle.js"></script>
+    <script>BS.ToolTipsInit()</script>
+
+    <script>
+
+          const mostrar = () => {
+            var html = "Hola <span class='c-rojo'>Soy un span rojo !!!</span>",
+            clases = {
+                color: "fd-verde",
+                radio: "bor-rad-20",
+                colorTexto: "c-blanco"
+            },
+            tiempo = 5000
+            BS.Toast(html, clases, tiempo)
+          }
+           
+    </script>
+</body>
+
+
+</html>

@@ -1,4 +1,6 @@
 import $ from 'jquery'
+import ERR from "./GestionErrores"
+
 
 (function(){
 
@@ -7,6 +9,23 @@ import $ from 'jquery'
         radio: "bor-rad-3",
         colorTexto: "c-blanco"
         }, tiempo = 3000)=> {
+
+        if(!ERR.fondo.val(clases.color)) {
+            console.error("(TOAST)" + ERR.fondo.mje)
+            return
+        }
+
+        if(!ERR.texto.val(clases.colorTexto)) {
+            console.error("(TOAST)" + ERR.texto.mje)
+            return
+        }
+
+
+        if(!ERR.borde.val(clases.radio)) {
+            console.error("(TOAST)" + ERR.borde.mje)
+            return
+        }
+
         $(".toast").remove();
         $("body").append("<div class='toast'></div>");
         var t = $("body .toast:last-child")
