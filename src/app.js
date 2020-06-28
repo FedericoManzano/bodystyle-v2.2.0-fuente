@@ -137,6 +137,10 @@ import ComentarioDinamico from "./modulos/ComentarioDinamico"
         Slider.iniciar(config)
     }
 
+    var SliderDestroy= () => {
+        Slider.destroy()
+    }
+
     var Deshabilitar = () => {
         desactivar(".deshabilitado")
         desactivar(".input-cargando")
@@ -207,6 +211,8 @@ import ComentarioDinamico from "./modulos/ComentarioDinamico"
 
         // Slider
         SliderInit: (config = {}) => SliderInit(config),
+        SliderDestroy: () => SliderDestroy(),
+
 
         // Paralax
         ParalaxInit: () => ParalaxInit(),
