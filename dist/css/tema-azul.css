@@ -5,7 +5,11 @@
  * Repositorio (https://github.com/FedericoManzano/bodystyle-v2.2.0-fuente)
  */
 .bs-html-etquetas {
-  color: #0035a7 !important;
+  color: #0048e2 !important;
+}
+
+.bs-mayor-menor {
+  color: #242424 !important;
 }
 
 .bs-html-cadenas {
@@ -17,7 +21,7 @@
 }
 
 .bs-html-attr {
-  color: #005266 !important;
+  color: #00b44b !important;
 }
 
 .bs-html-comentarios {

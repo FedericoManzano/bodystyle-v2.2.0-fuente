@@ -14,13 +14,25 @@
 
     <div class="contenedor mar-3">
         <pre class="cod-css">
-        
+        @import url('https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap');
+
+        /**
+            Este es un ejemplo de comentario CSS
+        */
+       
         .alinear-texto {
-            background-color: red;
+            background-color: red; /** Esta es una propiedad CSS*/
             width: 30px;
             border: 1px solid black;
             max-width: 30%;
-            -moz-box-sizing: border-box
+            -moz-box-sizing: border-box;
+            align-item: center
+        }
+
+        @media (max-width: 220px) {
+            .clase {
+                text-align: center;
+            }
         }
         </pre>
     </div>

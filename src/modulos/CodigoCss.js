@@ -4,6 +4,37 @@ import $ from "jquery"
     let indice = 0
 
 
+
+    const colorearComentario = (codigo, resultado, i) => {
+        resultado += "<span class='c-verde'>"+ codigo[i] + "</span>"
+        i ++
+        while (codigo[i] !== '/' && codigo.length !== i){
+            resultado += "<span class='c-verde'>"+ codigo[i] + "</span>"
+            i ++
+        }
+        if(codigo[i] === '/') {
+            resultado += "<span class='c-verde'>"+ codigo[i] + "</span>"
+        }
+        codigo[i] === '\n'
+        indice = i
+
+        return resultado
+    }
+
+    const colorearCadenas = (codigo, resultado, i) => {
+        resultado += "<span class='c-azul-c'>"+ codigo[i] + "</span>"
+        i ++
+        while (codigo[i] !== '"' && codigo[i] !== "'"  && codigo.length !== i){
+            resultado += "<span class='c-azul-c'>"+ codigo[i] + "</span>"
+            i ++
+        }
+        if(codigo[i] === '"' || codigo[i] === "'") {
+            resultado += "<span class='c-azul-c'>"+ codigo[i] + "</span>"
+        }
+        indice = i
+        return resultado
+    }
+
     const colorearSelectores  = (codigo) =>  {
 
         let resultado = ""
@@ -11,6 +42,17 @@ import $ from "jquery"
         for(var i = 0; i < codigo.length; i ++) {
             if(codigo[i] === '{') {
                 while (codigo[i] !== '}'){
+                    if(codigo[i] === '/') {
+                        resultado = colorearComentario(codigo, resultado, i)
+                        i = indice
+                    }
+                    if(codigo[i] === "'" || codigo[i] === '"') {
+                        resultado = colorearCadenas(codigo, resultado, i)
+                        i = indice
+                    }
+
+                    if(codigo[i] === '/')
+                        i ++
                     resultado += codigo[i]
                     i ++
                 }
@@ -19,12 +61,24 @@ import $ from "jquery"
                     i ++
                 }
             } 
+            else if(codigo[i] === '@') {
+                while (codigo[i] !== ' ' && codigo[i] !== '\n' && codigo.length !== i){
+                    resultado += "<span class='c-violeta'>"+ codigo[i] + "</span>"
+                    i ++
+                }
+                if(codigo[i] === ' ') 
+                    resultado += codigo[i]
+                
+            }else if(codigo[i] === '/') {
+                resultado = colorearComentario(codigo, resultado, i)
+                i = indice
+            }else if(codigo[i] === "'" || codigo[i] === '"') {
+                resultado = colorearCadenas(codigo, resultado, i)
+                i = indice
+            }
             else
                 resultado += "<span class='bs-selector'>"+ codigo[i] + "</span>"
         }
-        
-
-
         return resultado
     }
 
@@ -69,7 +123,6 @@ import $ from "jquery"
             // Medidas 
             resultado = resultado.replace(/px/g, "<span class='bs-medidas'>px</span>")
             resultado = resultado.replace(/rem/g, "<span class='bs-medidas'>rem</span>")
-            resultado = resultado.replace(/em/g, "<span class='bs-medidas'>em</span>")
             resultado = resultado.replace(/%/g, "<span class='bs-medidas'>%</span>")
            
 
@@ -156,11 +209,11 @@ import $ from "jquery"
 
 
             resultado = resultado.replace(/justify-contenet/g, "<span class='bs-prop'>justify-contenet</span>")
-            resultado = resultado.replace(/align-item/g, "<span class='bs-prop'>align-item</span>")
+            
             resultado = resultado.replace(/align-content/g, "<span class='bs-prop'>align-content</span>")
             resultado = resultado.replace(/flex-wrap/g, "<span class='bs-prop'>flex-wrap</span>")
             resultado = resultado.replace(/flex-direction/g, "<span class='bs-prop'>flex-direction</span>")
-
+            resultado = resultado.replace(/align-item/g, "<span class='bs-prop'>align-item</span>")
 
             resultado = resultado.replace(/box-sizing/g, "<span class='bs-prop'>box-sizing</span>")
             resultado = resultado.replace(/float/g, "<span class='bs-prop'>float</span>")

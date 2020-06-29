@@ -8,7 +8,7 @@ import ERR from "./GestionErrores"
         $(".waves").click(function(e){
             var color = $(e.target).data("color")
             var boton = $(e.target)
-
+            var elemento = $("<span class='efecto-waves'></span>")
             if(color !== undefined && color !== "") {
                 if(!ERR.fondo.val(color)) {
                     console.error("(WAVES)" + ERR.fondo.mje + " Revise el attr data-color='fd-[color]'")
@@ -17,8 +17,6 @@ import ERR from "./GestionErrores"
                 $(elemento).addClass(color)
             }
 
-            var elemento = $("<span class='efecto-waves'></span>")
-           
         
             $(elemento).css({
                 width: 10,

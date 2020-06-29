@@ -30,10 +30,19 @@ import $ from "jquery"
     }
 
     const colorearEtiqueta = (codigo, resultado, pos) => {
-        while(codigo[pos] !== ' ' && codigo[pos] !== '>' && codigo[pos] !== '&gt;') {
-            resultado += "<span class='bs-html-etquetas'>" + codigo[pos] + "</span>"
+        if(codigo[pos] === '<') {
+            resultado += "<span class='bs-mayor-menor'>" + codigo[pos] + "</span>"
             pos ++
         }
+        while(codigo[pos] !== ' ' && codigo[pos] !== '>' && codigo[pos] !== '&gt;') {
+            if(codigo[pos] === '/') {
+                resultado += "<span class='bs-mayor-menor'>" + codigo[pos] + "</span>"
+            }else
+                resultado += "<span class='bs-html-etquetas'>" + codigo[pos] + "</span>"
+            pos ++
+        }
+
+        
         if(codigo[pos] === ' ' ) 
             resultado += ' '
         indice = pos
@@ -53,9 +62,10 @@ import $ from "jquery"
     }
 
     const colorearCadena = (codigo, resultado, pos) => {
+        let cadena = codigo[pos]
         resultado += "<span class='bs-html-cadenas'>" + codigo[pos] + "</span>"
         pos ++ 
-        while(!esCadena(codigo[pos])) {
+        while(codigo[pos] !== cadena) {
             resultado += "<span class='bs-html-cadenas'>" + codigo[pos] + "</span>"
             pos ++ 
         } 
@@ -115,7 +125,7 @@ import $ from "jquery"
         }
         pos = indice
         if(codigo[pos] === '>' || codigo[pos] === '&gt;') {
-            resultado += "<span class='bs-html-etquetas'>" + codigo[pos] + "</span>"
+            resultado += "<span class='bs-mayor-menor'>" + codigo[pos] + "</span>"
         }
             
         pos = indice
