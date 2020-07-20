@@ -1,7 +1,7 @@
 {
   "name": "body-ui",
-  "version": "2.2.3",
-  "description": "v2.2.3 de la librería de estilos CSS BodyStyle",
+  "version": "2.2.5",
+  "description": "v2.2.4 de la librería de estilos CSS BodyStyle",
   "main": "dist/js/bodystyle.js",
   "scripts": {
     "build": "webpack"
@@ -24,14 +24,15 @@
   "style": "dist/css/bodystyle.css",
   "sass": "sass/bodystyle.scss",
   "dependencies": {
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.1",
+    "show-sintax": "^1.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "babel-loader": "^8.1.0",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   }
 }
